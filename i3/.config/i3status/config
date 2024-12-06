@@ -1,0 +1,26 @@
+general {
+        colors = false
+        interval = 5 
+        color_good = "#919753"
+        color_degraded = "#EBCB8B"
+        color_bad = "#A35151"
+        markup = pango
+}
+
+### Widget List 
+order += "cpu_usage"
+order += "disk /"
+order += "time"
+
+### Widget Settings
+cpu_usage {
+  format = "<span foreground='#b16286'></span><span background='#b16286'> CPU   %usage </span><span foreground='#000000' background='#b16286'></span>"
+}
+disk "/" {
+        format = "<span foreground='#83a598'></span><span background='#83a598'> %avail </span><span foreground='#000000' background='#83a598'></span>"
+}
+
+time {
+        format = "<span foreground='#8ec87c'></span><span foreground='#000000' background='#8ec87c'> %a, %d %b %R </span><span foreground='#282828' background='#8ec87c'></span>"
+
+}
