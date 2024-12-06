@@ -1,26 +1,38 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
 general {
-        colors = false
-        interval = 5 
-        color_good = "#919753"
-        color_degraded = "#EBCB8B"
-        color_bad = "#A35151"
-        markup = pango
+        colors = true
+        interval = 5
 }
 
-### Widget List 
-order += "cpu_usage"
 order += "disk /"
+order += "memory"
+order += "cpu_usage"
+order += "load"
 order += "time"
 
-### Widget Settings
-cpu_usage {
-  format = "<span foreground='#b16286'></span><span background='#b16286'> CPU   %usage </span><span foreground='#000000' background='#b16286'></span>"
-}
-disk "/" {
-        format = "<span foreground='#83a598'></span><span background='#83a598'> %avail </span><span foreground='#000000' background='#83a598'></span>"
-}
-
 time {
-        format = "<span foreground='#8ec87c'></span><span foreground='#000000' background='#8ec87c'> %a, %d %b %R </span><span foreground='#282828' background='#8ec87c'></span>"
+        format = "     %H:%M %d/%m/%Y"
+}
 
+load {
+        format = " LOAD %1min "
+}
+
+disk "/" {
+        format = " DISK %avail "
+}
+
+cpu_usage {
+	format = " CPU %usage "
+}
+
+memory {
+	format = " MEM %percentage_used "
 }
