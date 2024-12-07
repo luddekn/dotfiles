@@ -1,0 +1,26 @@
+#!/bin/bash
+
+DIRECTORY="$HOME/dotfiles"
+
+echo "Installing for laptop? (y/n)"
+read -r choice
+
+if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+    exclude_dirs=("i3" "scripts")
+else
+    exclude_dirs=("i3laptop" "scripts")
+fi
+
+cd "$DIRECTORY" || { echo "Failed to change to $DIRECTORY"; exit 1; }
+
+for dir in *; do
+    if [[ -d "$dir" ]]; then
+        if [[ " ${exclude_dirs[*]} " == *" $dir "* ]]; then
+            continue
+        fi
+
+        echo "stow $dir"
+        stow "$dir"
+    fi
+done
+
