@@ -6,9 +6,9 @@ echo "Installing for laptop? (y/n)"
 read -r choice
 
 if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-    exclude_dirs=("i3" "scripts")
+    exclude_dirs=("i3" "scripts" "alacritty")
 else
-    exclude_dirs=("i3laptop" "scripts")
+    exclude_dirs=("i3laptop" "scripts" "alacrittylaptop")
 fi
 
 cd "$DIRECTORY" || { echo "Failed to change to $DIRECTORY"; exit 1; }
