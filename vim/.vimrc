@@ -7,7 +7,7 @@ set relativenumber
 
 "Status line"
 set laststatus=2
-set statusline=\ %{StatuslineMode()}\ %f%m%=%{tolower(&filetype)}\ \|\ %{&encoding}[%{&fileformat}]\ \|\ Ln:[%l:%L]\ \|\ Col:%c\ \|\ Buf:%n
+set statusline=\ %{StatuslineMode()}\ %f%m%=%{tolower(&filetype)}\ \|\ %{&encoding}[%{&fileformat}]\ \|\ Ln\ %l\,\ Col\ %c\ \|\ Buf:%n
 
 function! StatuslineMode()
   let l:mode=mode()
