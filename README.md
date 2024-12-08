@@ -1,5 +1,5 @@
 # i3 Configuration
-Check the [new_computer_setup.sh]() script, the packages that needs to be installed are on the top! 
+Check the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) script, the packages that need to be installed are on the top! 
 
 # VSCode configuration
 ### Extensions
