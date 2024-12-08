@@ -38,12 +38,13 @@ memory {
 	format = " MEM %percentage_used "
 }
 battery 1 {
-   format = " %status %percentage"
-   format_down = " "
-   status_chr = " "
-   status_bat = " "
-   status_unk = " "
-   status_full = " "
-   path = "/sys/class/power_supply/BAT%d/uevent"
-   low_threshold = 10
+	format = " %status %percentage"
+	format_percentage = "%.f%s"
+	format_down = " "
+	status_chr = " "
+	status_bat = " "
+	status_unk = " "
+	status_full = " "
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 10
 }
