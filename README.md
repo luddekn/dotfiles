@@ -1,5 +1,6 @@
 # i3 Configuration
-Check the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) script, the packages that need to be installed are on the top! 
+Check the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) script, the packages that need to be installed are on the top!
+After installing the needed packages, run the [install]() script to link all dotfiles to their intended places using stow.
 
 # VSCode configuration
 ### Extensions
