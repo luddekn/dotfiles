@@ -13,7 +13,15 @@ sudo apt install picom
 ```
 # VSCode configuration
 ### Extensions
-
+- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+- [Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [HTMLHint](https://marketplace.visualstudio.com/items?itemName=HTMLHint.vscode-htmlhint)
+- [JavaScipt Code Snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+- [Liveserver](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Dark Pine Theme](https://marketplace.visualstudio.com/items?itemName=LudvikKristoffersen.dark-pine-theme)
+- [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 ### Settings (JSON)
 ```json
 {
