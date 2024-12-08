@@ -1,14 +1,21 @@
 #!/bin/bash
 
+# Running initial update and upgrade
 echo "Running initial update and upgrade of package manager"
 sudo apt-get update && sudo apt-get upgrade -y
 echo
 
-echo "Installing core stuff"
-echo -e "\txorg\n\ti3\n\tlightdm\n\tcurl\n\tvim\n\tnetwork-manager\n\tgh\n\tzsh & zsh-syntax-highlighting\n\tpicom\n\tstow\n\tpulseaudio & pavucontrol\n\tblueman & libspa-0.2-bluetooth\n\tzip\n\tgpg\n\tufw\n\tthunar"
-sudo apt-get install -y xorg i3 lightdm curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar
+# Installing core essentials
+echo "Installing core essentials"
+echo -e "\txorg\n\ti3\n\tlightdm"
+sudo apt-get install -y xorg i3 lightdm
 echo
-
+# Installing extra stuff
+echo "Installing extra stuff"
+echo -e "\tcurl\n\tvim\n\tnetwork-manager\n\tgh\n\tzsh & zsh-syntax-highlighting\n\tpicom\n\tstow\n\tpulseaudio & pavucontrol\n\tblueman & libspa-0.2-bluetooth\n\tzip\n\tgpg\n\tufw\n\tthunar"
+sudo apt-get install -y curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar
+echo
+# Enabling lightdm on boot
 echo "Enabling lightdm"
 if ! systemctl is-enabled --quiet lightdm; then
   sudo systemctl enable lightdm
@@ -16,7 +23,7 @@ else
   echo "lightdm is already enabled."
 fi
 echo
-
+# Enabling networkmanager on boot
 echo "Enabling NetworkManager"
 if ! systemctl is-enabled --quiet NetworkManager; then
   sudo systemctl enable NetworkManager
@@ -24,13 +31,14 @@ else
   echo "NetworkManager is already enabled."
 fi
 echo
-
+# Enabling firewall on boot and setting rules: DENY ALL inc - ALLOW ALL out
 echo "Enabling ufw and setting rules"
 sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 echo
 
+# Asking user if they want to install Brave browser and Spotify now, could always install later!
 echo "Do you want to install Brave and Spotify? (y/n)"
 read -r choice
 
@@ -52,6 +60,7 @@ else
 	echo "Not installing Brave or Spotify"
 fi
 
+# Removing the desktop-base package to remove the Debian wallpaper on GRUB and background
 echo "Removing desktop-base for the removal of default Debian background in grub and i3"
 sudo apt-get purge desktop-base -y
 sudo apt-get autoremove -y
