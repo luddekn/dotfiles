@@ -12,6 +12,7 @@
 set $mod Mod4
 
 #exec --no-startup-id ~/dotfiles/monitor-setup.sh
+exec --no-startup-id ~/dotfiles/monitor-setup.sh
 exec --no-startup-id picom
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
