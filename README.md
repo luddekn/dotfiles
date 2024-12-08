@@ -1,16 +1,6 @@
 # i3 Configuration
-These are my dotfiles for i3
+Check the [new_computer_setup.sh]() script, the packages that needs to be installed are on the top! 
 
-`sudo apt install i3` && `sudo apt install i3status`
-
-Install `stow` for easy mapping of dotfiles
-```bash
-sudo apt install stow
-```
-Install `picom` for compositing
-```bash
-sudo apt install picom
-```
 # VSCode configuration
 ### Extensions
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
