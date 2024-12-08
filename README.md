@@ -2,8 +2,19 @@
 Go through the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) script manually, or run it. The packages that **need** to be installed are on the top!
 
 After installing the needed packages, run the [install](https://github.com/luddekn/dotfiles/blob/main/install) script to link all dotfiles to their intended places using stow.
-
-# VSCode configuration
+# ZSH Configuration
+For the [.zshrc](https://github.com/luddekn/dotfiles/blob/main/zsh/.zshrc) file to work without problems, you need to install a few things.
+```sh
+sudo apt install zsh-syntax-highlighting
+```
+```sh
+sudo apt install zsh-autosuggestions
+```
+```sh
+# We install this to get a more colorful "ls" command
+sudo dpkg -i <latest release https://github.com/lsd-rs/lsd/releases>
+```
+# VSCode Configuration
 ### Extensions
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
 - [Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
