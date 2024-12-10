@@ -14,5 +14,5 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live gr
 -- Toggling our neo-tree
 vim.keymap.set("n", "<leader>s", ":Neotree filesystem reveal left<CR>")
 
--- Let's us escape by pressing "jj"
+-- Escape insert mode by pressing "jj"
 vim.keymap.set("i", "jj", "<Esc>")
