@@ -12,4 +12,3 @@ vim.opt.wrap = false
 vim.opt.guicursor = ""
 
 vim.opt.termguicolors = true
-
