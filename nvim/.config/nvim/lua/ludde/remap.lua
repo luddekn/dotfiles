@@ -26,3 +26,6 @@ vim.keymap.set("n", "<right>", "<cmd>echo 'Use l to move right'<CR>")
 vim.keymap.set("n", "<up>", "<cmd>echo 'Use k to move up'<CR>")
 vim.keymap.set("n", "<down>", "<cmd>echo 'Use j to move down'<CR>")
 
+-- Setting keymaps for lsp
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "<leader>p", vim.lsp.buf.code_action, {})
