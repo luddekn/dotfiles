@@ -25,6 +25,8 @@ vim.opt.timeoutlen = 300
 
 vim.opt.scrolloff = 10
 
+vim.g.have_nerd_font = true 
+
 -- Makes nvim and OS share clipboard
 vim.schedule(function()
     vim.opt.clipboard = "unnamedplus"
