@@ -36,4 +36,4 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
 -- Toggle netrw as a side panel
-vim.keymap.set("n", "<leader>s", ":17Lex<CR>")
+vim.keymap.set("n", "<leader>s", ":17Lex<CR>:echo '%: Create file | d: Create directory | D: Delete file/directory | R: Rename file'<CR>")
