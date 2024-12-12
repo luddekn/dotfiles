@@ -5,14 +5,12 @@ require("ludde.lazy")
 
 local builtin = require("telescope.builtin")
 
-vim.keymap.set("n", "<leader>8", vim.cmd.Ex)
+--vim.keymap.set("n", "<leader>8", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>s", ":25Lex<CR>")
 
 -- Keybindings for telescope
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-
--- Toggling our neo-tree
-vim.keymap.set("n", "<leader>s", ":Neotree filesystem reveal left<CR>")
 
 -- Escape insert mode by pressing "jj"
 vim.keymap.set("i", "jj", "<Esc>")
@@ -27,5 +25,16 @@ vim.keymap.set("n", "<up>", "<cmd>echo 'Use k to move up'<CR>")
 vim.keymap.set("n", "<down>", "<cmd>echo 'Use j to move down'<CR>")
 
 -- Setting keymaps for lsp
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "H", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>p", vim.lsp.buf.code_action, {})
+
+-- Auto close
+vim.keymap.set("i", '"', '""<left>')
+vim.keymap.set("i", "(", "()<left>")
+vim.keymap.set("i", "[", "[]<left>")
+vim.keymap.set("i", "{", "{}<left>")
+vim.keymap.set("i", "/*", "/**/<left>")
+
+-- Visual map 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")

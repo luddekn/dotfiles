@@ -18,4 +18,3 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Initializing lazy, getting plugins from "lua/plugins
 require("lazy").setup("plugins")
-
