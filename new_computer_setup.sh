@@ -12,8 +12,8 @@ sudo apt-get install -y xorg i3 lightdm
 echo
 # Installing extra stuff
 echo "Installing extra stuff"
-echo -e "\tcurl\n\tvim\n\tnetwork-manager\n\tgh\n\tzsh & zsh-syntax-highlighting\n\tpicom\n\tstow\n\tpulseaudio & pavucontrol\n\tblueman & libspa-0.2-bluetooth\n\tzip\n\tgpg\n\tufw\n\tthunar"
-sudo apt-get install -y curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar
+echo -e "\tcurl\n\tvim\n\tnetwork-manager\n\tgh\n\tzsh & zsh-syntax-highlighting\n\tpicom\n\tstow\n\tpulseaudio & pavucontrol\n\tblueman & libspa-0.2-bluetooth\n\tzip\n\tgpg\n\tufw\n\tthunar\n\tflameshot"
+sudo apt-get install -y curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar flameshot
 echo
 # Enabling lightdm on boot
 echo "Enabling lightdm"
