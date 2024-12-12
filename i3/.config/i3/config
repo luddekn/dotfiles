@@ -16,7 +16,7 @@ exec --no-startup-id picom # Running picom
 exec --no-startup-id xset s off # Disabling screensaver
 exec --no-startup-id xset -dpms #Disabling screensaver
 exec --no-startup-id xset r on
-exec --no-startup-id xset r 100
+exec --no-startup-id xset r rate 200 80 
 exec --no-startup-id ~/dotfiles/scripts/liquidctl.sh # Running liquidctl script for setting CPU cooler values
 exec --no-startup-id ~/dotfiles/scripts/gpu-start.sh # Running nvidia script for setting fan speed
 
