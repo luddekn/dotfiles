@@ -4,10 +4,6 @@ vim.g.mapleader = " "
 require("ludde.lazy")
 
 local builtin = require("telescope.builtin")
-
---vim.keymap.set("n", "<leader>8", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>s", ":25Lex<CR>")
-
 -- Keybindings for telescope
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
@@ -35,6 +31,9 @@ vim.keymap.set("i", "[", "[]<left>")
 vim.keymap.set("i", "{", "{}<left>")
 vim.keymap.set("i", "/*", "/**/<left>")
 
--- Visual map 
+-- Keymaps for moving whole lines 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+
+-- Toggle netrw as a side panel
+vim.keymap.set("n", "<leader>s", ":17Lex<CR>")
