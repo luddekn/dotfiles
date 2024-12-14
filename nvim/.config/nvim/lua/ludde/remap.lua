@@ -24,13 +24,6 @@ vim.keymap.set("n", "<down>", "<cmd>echo 'Use j to move down'<CR>")
 vim.keymap.set("n", "H", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>p", vim.lsp.buf.code_action, {})
 
--- Auto close
-vim.keymap.set("i", '"', '""<left>')
-vim.keymap.set("i", "(", "()<left>")
-vim.keymap.set("i", "[", "[]<left>")
-vim.keymap.set("i", "{", "{}<left>")
-vim.keymap.set("i", "/*", "/**/<left>")
-
 -- Keymaps for moving whole lines 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
