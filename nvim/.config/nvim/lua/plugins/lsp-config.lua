@@ -125,7 +125,7 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-y>"] = cmp.mapping.complete(),
 				["<C-f>"] = cmp_action.luasnip_jump_forward(),
 				["<C-b>"] = cmp_action.luasnip_jump_backward(),
