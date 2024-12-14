@@ -30,10 +30,6 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- Pasting over something without loosing it from clipboard
 vim.keymap.set("x", "<leader>P", "\"_dP")
 
-vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
-end)
-
 -- Copying to system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
