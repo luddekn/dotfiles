@@ -16,7 +16,6 @@ vim.opt.wrap = false
 vim.opt.guicursor = ""
 
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = "80"
 
 vim.opt.signcolumn = "yes"
 
@@ -24,17 +23,10 @@ vim.opt.scrolloff = 8
 
 vim.g.have_nerd_font = true
 
-vim.opt.laststatus = 2
-vim.opt.cmdheight = 2
-vim.opt.showcmd = true
-vim.opt.showmode = true
-
--- Makes nvim and OS share clipboard
-vim.opt.clipboard = "unnamedplus"
-
 vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
-vim.opt.fileencoding = "utf-8"
+vim.opt.updatetime = 50
 
 -- Quickly highlights the text you are copying
 vim.api.nvim_create_autocmd("TextYankPost", {
