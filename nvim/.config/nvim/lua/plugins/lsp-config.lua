@@ -71,6 +71,7 @@ return {
 				"html",
 				"bashls",
 				"cssls",
+				"ts_ls",
 			},
 			handlers = {
 				lsp.default_setup,
@@ -118,8 +119,8 @@ return {
 			},
 			sources = {
 				{ name = "nvim_lsp" },
-				{ name = "luasnip", keyword_length = 2 },
-				{ name = "buffer", keyword_length = 3 },
+				{ name = "luasnip" },
+				{ name = "buffer" },
 				{ name = "path" },
 			},
 			mapping = cmp.mapping.preset.insert({
