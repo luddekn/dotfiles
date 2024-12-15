@@ -131,6 +131,7 @@ alias dir="dir --color=auto"
 alias ip="ip --color=auto"
 alias cls="clear"
 alias gith="gitHelp"
+alias postman="/opt/Postman/Postman"
 
 # Set directories where commands can be run from without specifying their full paths.
 export PATH=$PATH/bin
