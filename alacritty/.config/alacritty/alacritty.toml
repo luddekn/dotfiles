@@ -1,5 +1,5 @@
 general.import = [
-	"~/.config/alacritty/rose-pine-theme.toml"
+	"~/.config/alacritty/solarized-osaka.toml"
 ]
 [env]
 TERM = "xterm-256color"

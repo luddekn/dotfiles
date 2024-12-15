@@ -136,6 +136,8 @@ alias postman="/opt/Postman/Postman"
 # Set directories where commands can be run from without specifying their full paths.
 export PATH=$PATH/bin
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/alacritty/target/release:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
