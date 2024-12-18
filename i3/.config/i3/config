@@ -12,7 +12,6 @@
 set $mod Mod4
 
 exec --no-startup-id ~/dotfiles/monitor-setup.sh
-exec --no-startup-id picom # Running picom
 exec --no-startup-id xset s off # Disabling screensaver
 exec --no-startup-id xset -dpms #Disabling screensaver
 exec --no-startup-id xset r on
