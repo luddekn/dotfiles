@@ -12,11 +12,8 @@ else
     exclude_dirs=("i3laptop" "scripts" "alacrittylaptop")
 fi
 
-# If the directory ~/dotfiles does not exist, stop.
-cd "$DIRECTORY" || { echo "Failed to change to $DIRECTORY"; exit 1; }
-
 # For each file in the ~/dotfiles directory, use stow on all sub-directories excluding the directories
-# depending on the user choice on line 7 
+# depending on the user choice on line 7
 for dir in *; do
     if [[ -d "$dir" ]]; then
         if [[ " ${exclude_dirs[*]} " == *" $dir "* ]]; then
@@ -27,4 +24,3 @@ for dir in *; do
         stow "$dir"
     fi
 done
-
