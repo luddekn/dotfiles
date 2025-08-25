@@ -3,11 +3,6 @@ vim.g.mapleader = " "
 
 require("ludde.lazy")
 
-local builtin = require("telescope.builtin")
--- Keybindings for telescope
-vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-
 -- Escape insert mode by pressing "jj"
 vim.keymap.set("i", "jj", "<Esc>")
 
