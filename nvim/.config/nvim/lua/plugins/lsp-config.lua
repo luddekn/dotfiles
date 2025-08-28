@@ -34,34 +34,48 @@ return {
         require("mason").setup({})
         require("mason-lspconfig").setup({})
 
-        -- Manual LSP setup
-        -- ts_ls
-        require("lspconfig").ts_ls.setup({
+        -- C#
+        require("lspconfig").omnisharp.setup({
             on_attach = lsp.on_attach,
+            cmd = { "dotnet", vim.fn.stdpath "data" .. "\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll" },
+            settings = {
+                FormattingOptions = {
+                    EnableEditorConfigSupport = false,
+                    OrganizeImports = true,
+                },
+                Sdk = {
+                    IncludePrereleases = true,
+                },
+            },
         })
 
-        -- lua_ls
+        -- JS
+        require("lspconfig").ts_ls.setup({ on_attach = lsp.on_attach })
+        -- LUA
         require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+        -- HTML
+        require("lspconfig").html.setup({ on_attach = lsp.on_attach })
+        -- CSS
+        require("lspconfig").cssls.setup({ on_attach = lsp.on_attach })
 
-        -- html
-        require("lspconfig").html.setup({
-            on_attach = lsp.on_attach,
-        })
-
-        -- cssls
-        require("lspconfig").cssls.setup({
-            on_attach = lsp.on_attach,
-        })
-
-        -- Completion
+        -- Completion setup
         local cmp = require("cmp")
         local cmp_action = require("lsp-zero").cmp_action()
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
-            snippet = { expand = function(args) require("luasnip").lsp_expand(args.body) end },
-            sources = { { name = "nvim_lsp" }, { name = "luasnip" }, { name = "buffer" }, { name = "path" } },
+            snippet = {
+                expand = function(args)
+                    require("luasnip").lsp_expand(args.body)
+                end,
+            },
+            sources = {
+                { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "buffer" },
+                { name = "path" },
+            },
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
                 ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -74,8 +88,10 @@ return {
             }),
         })
 
-        -- Cmdline completion
-        cmp.setup.cmdline("/", { mapping = cmp.mapping.preset.cmdline(), sources = { { name = "buffer" } } })
+        cmp.setup.cmdline("/", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = { { name = "buffer" } },
+        })
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources(
