@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -d "/opt/nvim-linux64" ]; then
+if [ -d "/opt/nvim-linux-x86_64" ]; then
     echo "Remove old nvim version"
     sudo rm -rf /opt/nvim-linux-x86_64
 fi

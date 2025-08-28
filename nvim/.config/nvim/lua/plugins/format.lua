@@ -22,6 +22,7 @@ return {
 				css = { "prettierd", "prettier", stop_after_first = true },
 				scss = { "prettierd", "prettier", stop_after_first = true },
 				bash = { "shfmt" },
+				go = { "gofmt", "goimports" },
 			},
 			-- Set default options
 			default_format_opts = {
