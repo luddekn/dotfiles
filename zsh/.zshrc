@@ -14,7 +14,7 @@ zstyle ':vcs_info:git:*' formats " on %{$fg[yellow]%}$GITBRANCH_ICON%b%{$reset_c
 zstyle ':vcs_info:*' enable git
 
 setopt PROMPT_SUBST
-PROMPT='┌─[$(date +%T)]─%B%F{green}%n%b%f in %B%F{blue}%~%b%f${vcs_info_msg_0_}
+PROMPT='┌─ %B%F{green}%n%b%f in %B%F{blue}%~%b%f${vcs_info_msg_0_}
 └> '
 
 # Removing "/" from the list of word characters simplifies working with files and paths.
