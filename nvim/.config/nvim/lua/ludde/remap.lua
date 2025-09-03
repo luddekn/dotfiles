@@ -15,7 +15,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Toggle netrw as a side panel
-vim.keymap.set("n", "<leader>s", ":Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>s", "<C-w><C-w>")
+vim.keymap.set("n", "<C-s>", ":Neotree toggle<CR>")
 
 -- Deleting without copying it
 vim.keymap.set("n", "<leader>d", '"_d')
