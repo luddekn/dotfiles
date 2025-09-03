@@ -62,7 +62,7 @@ bindsym $mod+Return exec ~/alacritty/target/release/alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run -nb "#000000" -sb "#44415a" -sf "#ffffff" -fn "JetBrains Mono Nerd Font"
+bindsym $mod+space exec --no-startup-id dmenu_run -nb "#000000" -sb "#ffffff" -sf "#000000" -fn "JetBrains Mono Nerd Font"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -191,12 +191,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Color shemes for windows 
-set $bgcolor    #44415a
+set $bgcolor    #ffffff
 set $in-bgcolor #000000
-set $text       #ffffff
+set $text       #000000
 set $u-bgcolor  #ff0000
 set $indicator  #a8a3c1
-set $in-text    #a0a0a0
+set $in-text    #ffffff
 #                       border          background      text            indicator (a line which shows where the next window will be placed)     
 client.focused          $bgcolor        $bgcolor        $text           $indicator
 client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
@@ -213,7 +213,7 @@ bar {
                 separator #ffffff
                 #                       border          background      text
                 focused_workspace       $bgcolor        $bgcolor        $text
-                inactive_workspace      $in-bgcolor     $in-bgcolor     $text
+                inactive_workspace      $in-bgcolor     $in-bgcolor     $in-text
                 urgent_workspace        $u-bgcolor      $u-bgcolor      $text   
 
         }
