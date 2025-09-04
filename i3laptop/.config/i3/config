@@ -125,10 +125,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1:  Dev"
+set $ws2 "2:  Brave"
+set $ws3 "3:  Discord"
+set $ws4 "4:  Spotify"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -222,3 +222,9 @@ bar {
 
         }
 }
+
+# Allocate applications to workspaces
+for_window [class="Alacritty"] move to workspace $ws1
+for_window [class="Brave-browser"] move to workspace $ws2
+for_window [class="discord"] move to workspace $ws3
+for_window [class="Spotify"] move to workspace $ws4
