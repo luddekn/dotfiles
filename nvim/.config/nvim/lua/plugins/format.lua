@@ -1,38 +1,29 @@
 return {
-	{
-		"stevearc/conform.nvim",
-		event = { "BufWritePre" },
-		cmd = { "ConformInfo" },
-		keys = {
-			{
-				"<leader>f",
-				function()
-					require("conform").format({ async = true })
-				end,
-				mode = "",
-				desc = "Format buffer",
-			},
-		},
-		opts = {
-			-- Define your formatters
+	"stevearc/conform.nvim",
+	opts = {},
+	config = function()
+		require("conform").setup({
 			formatters_by_ft = {
+				c = { "clang-format" },
 				lua = { "stylua" },
-				javascript = { "prettierd" },
+				go = { "gofmt" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 				html = { "prettier" },
-				bash = { "shfmt" },
-				go = { "gofmt", "goimports" },
 			},
 			formatters = {
-				prettier = {
-					prepend_args = { "--parser", "html" },
+				["clang-format"] = {
+					prepend_args = { "-style=file", "-fallback-style=LLVM" },
 				},
 			},
-			-- Set default options
-			default_format_opts = {
+			format_on_save = {
+				timeout_ms = 500,
 				lsp_format = "fallback",
 			},
-			-- Set up format-on-save
-			format_on_save = { timeout_ms = 500 },
-		},
-	},
+		})
+
+		vim.keymap.set("n", "<leader>f", function()
+			require("conform").format({ bufnr = 0 })
+		end, { desc = "Format buffer" })
+	end,
 }
