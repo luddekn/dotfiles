@@ -208,6 +208,7 @@ client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcol
 bar {
 	status_command i3status -c ~/.config/i3status/config
 	tray_output none 
+        output DP-2
         colors {
                 background #000000
                 separator #ffffff
@@ -218,3 +219,5 @@ bar {
 
         }
 }
+
+workspace 6 output HDMI-1
