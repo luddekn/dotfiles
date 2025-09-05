@@ -14,14 +14,17 @@ return {
 				["clang-format"] = {
 					prepend_args = { "-style=file", "-fallback-style=LLVM" },
 				},
+				["prettier"] = {
+					prepend_args = { "--column-width", "80" },
+				},
+				["stylua"] = {
+					prepend_args = { "--column-width", "80" },
+				},
 			},
-			format_on_save = function(bufnr)
-				-- Return a table of options, or false to disable
-				return {
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				}
-			end,
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			},
 		})
 
 		vim.keymap.set("n", "<leader>f", function()

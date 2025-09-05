@@ -13,22 +13,21 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
 		"windwp/nvim-autopairs",
-        {
-            "folke/lazydev.nvim",
-            ft = "lua",
-            opts = {
-                library = {
-                    {path = "${3rd}/luv/library", words = {"vim%.uv"}}
-                }
-            }
-        }
+		"rafamadriz/friendly-snippets", -- added snippet dependency
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = {
+				library = {
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 	},
 
 	config = function()
 		local lsp = require("lspconfig")
-		require("conform").setup({
-			formatters_by_ft = {},
-		})
+		require("conform")
 		local cmp = require("cmp")
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
@@ -40,6 +39,17 @@ return {
 
 		require("fidget").setup({})
 		require("mason").setup()
+
+		-- Minimal on_attach function for keymaps
+		local on_attach = function(client, bufnr)
+			local opts = { buffer = bufnr, remap = false }
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+			vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+		end
+
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
@@ -49,14 +59,17 @@ return {
 				"html",
 			},
 			handlers = {
-				function(server_name) -- default handler (optional)
+				function(server_name) -- default handler
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
-						on_attach = lsp.on_attach,
+						on_attach = on_attach,
 					})
 				end,
 			},
 		})
+
+		-- Load friendly-snippets for LuaSnip
+		require("luasnip.loaders.from_vscode").lazy_load()
 
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -75,15 +88,15 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-			}, {
 				{ name = "buffer" },
+				{ name = "path" },
 			}),
 		})
 
 		vim.diagnostic.config({
 			virtual_text = true,
 			signs = true,
-            underline = false,
+			underline = false,
 			update_in_insert = true,
 			severity_sort = true,
 			float = false,
@@ -96,10 +109,12 @@ return {
 		})
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
-			sources = cmp.config.sources(
-				{ { name = "path" } },
-				{ { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } } }
-			),
+			sources = cmp.config.sources({ { name = "path" } }, {
+				{
+					name = "cmdline",
+					option = { ignore_cmds = { "Man", "!" } },
+				},
+			}),
 		})
 		-- Setup nvim-autopairs for parentheses/quotes
 		require("nvim-autopairs").setup({
