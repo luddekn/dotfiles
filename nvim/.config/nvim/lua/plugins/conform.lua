@@ -8,7 +8,6 @@ return {
 				lua = { "stylua" },
 				go = { "gofmt" },
 				javascript = { "prettier" },
-				typescript = { "prettier" },
 				html = { "prettier" },
 			},
 			formatters = {
@@ -16,10 +15,13 @@ return {
 					prepend_args = { "-style=file", "-fallback-style=LLVM" },
 				},
 			},
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_format = "fallback",
-			},
+			format_on_save = function(bufnr)
+				-- Return a table of options, or false to disable
+				return {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				}
+			end,
 		})
 
 		vim.keymap.set("n", "<leader>f", function()
