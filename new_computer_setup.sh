@@ -12,8 +12,8 @@ sudo apt-get install -y xorg i3 lightdm
 echo
 # Installing extra stuff
 echo "Installing extra stuff"
-echo -e "\tcurl\n\tvim\t\t\t\t\t//vim text editor\n\tnetwork-manager\n\tgh\t\t\t\t\t//github\n\tzsh & zsh-syntax-highlighting\t\t//zsh shell and syntax highlighting\n\tpicom\t\t\t\t\t//compositor\n\tstow\t\t\t\t\t//used for setting dotfiles\n\tpulseaudio & pavucontrol\t\t//audio controls\n\tblueman & libspa-0.2-bluetooth\t\t//bluetooth stuff\n\tzip\n\tgpg\n\tufw\t\t\t\t\t//firewall\n\tthunar\t\t\t\t\t//file manager\n\tflameshot\t\t\t\t//screenshot tool\n\tmateria-gtk-theme\t\t\t//system theme\n\tlxappearance\t\t\t\t//setting system theme\n\tfonts-noto-color-emoji\t\t\t//emoji support for applications"
-sudo apt-get install -y curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar flameshot materia-gtk-theme lxappearance fonts-noto-color-emoji
+echo -e "\tcurl\n\tvim\t\t\t\t\t//vim text editor\n\tnetwork-manager\n\tgh\t\t\t\t\t//github\n\tzsh & zsh-syntax-highlighting\t\t//zsh shell and syntax highlighting\n\tpicom\t\t\t\t\t//compositor\n\tstow\t\t\t\t\t//used for setting dotfiles\n\tpulseaudio & pavucontrol\t\t//audio controls\n\tblueman & libspa-0.2-bluetooth\t\t//bluetooth stuff\n\tzip\n\tgpg\n\tufw\t\t\t\t\t//firewall\n\tthunar\t\t\t\t\t//file manager\n\tflameshot\t\t\t\t//screenshot tool\n\tmateria-gtk-theme\t\t\t//system theme\n\tlxappearance\t\t\t\t//setting system theme\n\tfonts-noto-color-emoji\t\t\t//emoji support for applications\n\ttmux\t\t\t\t\t//terminal multiplexer"
+sudo apt-get install -y curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar flameshot materia-gtk-theme lxappearance fonts-noto-color-emoji tmux
 echo
 # Enabling lightdm on boot
 echo "Enabling lightdm"
