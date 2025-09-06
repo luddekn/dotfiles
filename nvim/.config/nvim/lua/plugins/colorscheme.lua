@@ -1,13 +1,6 @@
-function changeColor(id)
-	local colorScheme
-	if id == 1 then
-		colorScheme = "rose-pine"
-	elseif id == 2 then
-		colorScheme = "solarized-osaka"
-	else
-		colorScheme = "solarized-osaka"
-	end
-	vim.cmd.colorscheme(colorScheme)
+function changeColor(color)
+	color = color or "solarized-osaka"
+	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
@@ -18,6 +11,7 @@ return {
 		"craftzdog/solarized-osaka.nvim",
 		lazy = false,
 		config = function()
+			local name = "solarized-osaka"
 			require("solarized-osaka").setup({
 				disable_background = true,
 				styles = {
@@ -29,13 +23,14 @@ return {
 				dim_inactive = true,
 				lualine_bold = true,
 			})
-			changeColor(2)
+			changeColor(name)
 		end,
 	},
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
 		config = function()
+			local name = "rose-pine"
 			require("rose-pine").setup({
 				disable_background = true,
 				styles = {
@@ -47,7 +42,7 @@ return {
 				dim_inactive = true,
 				lualine_bold = true,
 			})
-			changeColor(1)
+			changeColor(name)
 		end,
 	},
 }
