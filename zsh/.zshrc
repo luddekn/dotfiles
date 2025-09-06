@@ -1,145 +1,109 @@
-# Autoloads and enables color support in zsh
-autoload -U colors && colors
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Autoload vcs_info to have git branch in prompt
-autoload -Uz vcs_info
-precmd() {
-        vcs_info
-        echo # Adding space before prompt
-}
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Setting the prompt including the git branch
-GITBRANCH_ICON="-"
-zstyle ':vcs_info:git:*' formats " on %{$fg[yellow]%}$GITBRANCH_ICON%b%{$reset_color%}"
-zstyle ':vcs_info:*' enable git
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-setopt PROMPT_SUBST
-PROMPT='┌─ %B%F{green}%n%b%f in %B%F{blue}%~%b%f${vcs_info_msg_0_}
-└> '
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Removing "/" from the list of word characters simplifies working with files and paths.
-WORDCHARS=${WORDCHARS//\/}
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Key bindings for ease-of-use
-bindkey -e
-bindkey " " magic-space
-bindkey "^U" backward-kill-line
-bindkey "^[[3;5~" kill-word
-bindkey "^[[3~" delete-char
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "^[[5~" beginning-of-buffer-or-history
-bindkey "^[[6~" end-of-buffer-or-history
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
-bindkey "^[[Z" undo
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Zsh history file settings
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_verify
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Setting some zsh plugins
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
 
-# Enables completion features in zsh
-autoload -Uz compinit
-compinit -d ~/.cache/zcompdump
-zstyle ":completion:*:*:*:*:*" menu select
-zstyle ":completion:*" auto-description "specify: %d"
-zstyle ":completion:*" completer _expand _complete
-zstyle ":completion:*" format "Completing %d"
-zstyle ":completion:*" group-name ""
-zstyle ":completion:*" list-colors ""
-zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
-zstyle ":completion:*" rehash true
-zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
-zstyle ":completion:*" use-compctl false
-zstyle ":completion:*" verbose true
-zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
-# Functions
-# Git help command to print out a more detailed git --help command
-gitHelp() {
-    echo "\e[1;36mGit Command Helper\e[0m\n"
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-    echo "\e[1;34mSetting Up Git in Your Directory:\e[0m"
-    echo "  \e[0;32m- git config --global user.name \"Your Name\"\e[0m"
-    echo "  \e[0;32m- git config --global user.email \"your.email@example.com\"\e[0m\n"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-    echo "\e[1;34mCreating a New Git Repository:\e[0m"
-    echo "  \e[0;32m- gh auth login                      # Authenticate to github account, if not already done.\e[0m\n"
-    echo "  \e[0;32m- gh repo create repo-name --private # Creates repository.\e[0m\n"
-    echo "  \e[0;32m- git init\e[0m\n"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-    echo "\e[1;34mStaging and Committing Changes:\e[0m"
-    echo "  \e[0;32m- git add <file.txt>          # Stage a specific file\e[0m"
-    echo "  \e[0;32m- git add .                  # Stage all modified files\e[0m"
-    echo "  \e[0;32m- git commit -m \"Message\"  # Commit with a message\e[0m"
-    echo "  \e[0;32m- git commit                  # Commit with editor\e[0m\n"
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
 
-    echo "\e[1;34mChecking Repository Status:\e[0m"
-    echo "  \e[0;32m- git status                  # Show current repo status\e[0m\n"
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-    echo "\e[1;34mWorking with Branches:\e[0m"
-    echo "  \e[0;32m- git branch                  # List branches\e[0m"
-    echo "  \e[0;32m- git branch <branch-name>    # Create a new branch\e[0m"
-    echo "  \e[0;32m- git checkout <branch-name>  # Switch to a branch\e[0m"
-    echo "  \e[0;32m- git checkout -b <branch-name> # Create and switch to a new branch\e[0m\n"
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
-    echo "\e[1;34mSyncing with Remote Repository:\e[0m"
-    echo "  \e[0;32m- git remote add origin <url>  # Link local repo to remote\e[0m"
-    echo "  \e[0;32m- git push origin <branch>    # Push commits to remote\e[0m"
-    echo "  \e[0;32m- git pull origin <branch>    # Pull changes from remote\e[0m\n"
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-    echo "\e[1;34mViewing Commit History:\e[0m"
-    echo "  \e[0;32m- git log                     # Show commit history\e[0m"
-    echo "  \e[0;32m- git log --oneline           # Compact commit history\e[0m\n"
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-    echo "\e[1;34mTemporary Storage with Stash:\e[0m"
-    echo "  \e[0;32m- git stash                   # Save uncommitted changes\e[0m"
-    echo "  \e[0;32m- git stash pop               # Reapply last stashed changes\e[0m"
-    echo "  \e[0;32m- git stash list              # List all stashes\e[0m\n"
+source $ZSH/oh-my-zsh.sh
 
-    echo "\e[1;34mUndoing and Discarding Changes:\e[0m"
-    echo "  \e[0;32m- git reset --soft <commit>   # Undo commits but keep changes staged\e[0m"
-    echo "  \e[0;32m- git reset --hard <commit>   # Undo commits and discard changes\e[0m"
-    echo "  \e[0;32m- git revert <commit>         # Revert a specific commit\e[0m"
-    echo "  \e[0;32m- git checkout -- <file>      # Discard changes in a specific file\e[0m"
-    echo "  \e[0;32m- git restore <file>          # Restore file to last committed state\e[0m"
-    echo "  \e[0;32m- git restore --staged <file> # Unstage a file without discarding changes\e[0m\n"
+# User configuration
 
-    echo "\e[1;34mViewing Differences:\e[0m"
-    echo "  \e[0;32m- git diff                    # Show changes not staged\e[0m"
-    echo "  \e[0;32m- git diff --staged           # Show staged changes\e[0m\n"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-    echo "\e[1;34mTagging Important Points:\e[0m"
-    echo "  \e[0;32m- git tag <tag-name>          # Create a new tag\e[0m"
-    echo "  \e[0;32m- git tag                     # List all tags\e[0m\n"
-}
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# Setting color output for certain commands
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.zsh_profile
+
 alias ls="lsd"
-alias ll="lsd -alh"
-alias grep="grep --color=auto"
-alias dir="dir --color=auto"
-alias ip="ip --color=auto"
+alias ll="lsd -ahl"
 alias cls="clear"
-alias gith="gitHelp"
-alias postman="/opt/Postman/Postman"
-
-# Set directories where commands can be run from without specifying their full paths.
-export PATH=$PATH/bin
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/alacritty/target/release:$PATH
-export PATH=$PATH:/usr/local/go/bin
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

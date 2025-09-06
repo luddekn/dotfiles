@@ -57,6 +57,7 @@ return {
 				"ts_ls",
 				"cssls",
 				"html",
+				"bashls",
 			},
 			handlers = {
 				function(server_name) -- default handler

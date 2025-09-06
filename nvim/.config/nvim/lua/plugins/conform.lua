@@ -9,6 +9,7 @@ return {
 				go = { "gofmt" },
 				javascript = { "prettier" },
 				html = { "prettier" },
+				bashls = { "shfmt" },
 			},
 			formatters = {
 				["clang-format"] = {

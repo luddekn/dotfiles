@@ -1,11 +1,11 @@
 general.import = [
-	"~/.config/alacritty/solarized-osaka.toml"
+	"~/.config/alacritty/rosepine.toml"
 ]
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 12.0
+size = 14.0
 
 [font.bold]
 family = "JetBrains Mono Nerd Font"
