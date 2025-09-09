@@ -4,7 +4,10 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/alacritty/target/release:$PATH
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/usr/local/ludde
+
+if [[ -d "/usr/local/ludde" ]]; then
+    export PATH=$PATH:/usr/local/ludde
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
