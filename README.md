@@ -14,7 +14,15 @@ Install [Oh-My-ZSH](https://ohmyz.sh/#install), remove the autogenreated .zshrc 
 Also make sure to install the following plugins:
 - `git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions`
 - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting`
-```sh
+```bash
 # We install this to get a more colorful "ls" command
 sudo dpkg -i <latest release https://github.com/lsd-rs/lsd/releases>
+```
+
+# newnote.sh Script
+A copy of the `newnote.sh` script needs to be put in the `/usr/local/ludde` directory:
+```bash
+sudo mkdir /usr/local/ludde
+cp newnote.sh /usr/local/ludde/newnote
+sudo chmod +x /usr/local/ludde/newnote
 ```
