@@ -20,7 +20,9 @@ if [[ -d "$dir" ]]; then
         touch "$newfile"
         echo "'$file' created in '$dir'"
         echo "# ${file%.*}" >"$newfile"
-        echo "$(date -I)" >>"$newfile"
+        echo "Date: $(date -I)" >>"$newfile"
+        echo "Tags: " >>"$newfile"
+        echo "" >>"$newfile"
         echo "---" >>"$newfile"
         nvim "$newfile"
         exit 0
@@ -30,7 +32,9 @@ else
     touch "$newfile"
     echo "'$file' created in '$dir'"
     echo "# ${file%.*}" >"$newfile"
-    echo "$(date -I)" >>"$newfile"
+    echo "Date: $(date -I)" >>"$newfile"
+    echo "Tags: " >>"$newfile"
+    echo "" >>"$newfile"
     echo "---" >>"$newfile"
     nvim "$newfile"
     exit 0
