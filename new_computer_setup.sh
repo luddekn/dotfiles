@@ -72,34 +72,6 @@ else
     echo "Not installing nvim"
 fi
 
-# Asking user if they want to install Brave browser and Spotify now, could always install later!
-echo "Do you want to install Brave and Spotify? (y/n)"
-read -r choice
-
-if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-    echo "Adding Brave browser to apt source list, then downloading"
-    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg || {
-        echo "Brave key download failed"
-        exit 1
-    }
-    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-    sudo apt-get update
-    sudo apt-get install brave-browser -y
-    echo
-
-    echo "Adding Spotify to apt source list, then downloading"
-    curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg || {
-        echo "Spotify key download failed"
-        exit 1
-    }
-    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-    sudo apt-get update
-    sudo apt-get install spotify-client -y
-    echo
-else
-    echo "Not installing Brave or Spotify"
-fi
-
 # Removing the desktop-base package to remove the Debian wallpaper on GRUB and background
 echo "Removing desktop-base for the removal of default Debian background in grub and i3"
 sudo apt-get purge desktop-base -y
