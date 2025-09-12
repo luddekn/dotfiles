@@ -12,7 +12,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.opt.wrap = false
+vim.opt_local.wrap = true
+vim.opt_local.linebreak = true
+vim.opt_local.breakindent = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -31,7 +33,10 @@ vim.opt.updatetime = 50
 -- Quickly highlights the text you are copying
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	group = vim.api.nvim_create_augroup(
+		"kickstart-highlight-yank",
+		{ clear = true }
+	),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
