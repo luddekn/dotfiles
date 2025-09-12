@@ -3,6 +3,14 @@ vim.g.mapleader = " "
 
 require("ludde.lazy")
 
+-- Telescope keybinding
+vim.keymap.set("n", "<leader>s", function()
+	require("telescope.builtin").live_grep({
+		prompt_title = "Search Tags",
+		default_text = "@",
+	})
+end, { desc = "Search @tags in notes" })
+--
 -- Escape insert mode by pressing "jj"
 vim.keymap.set("i", "jj", "<Esc>")
 
