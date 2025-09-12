@@ -1,19 +1,30 @@
 #!/bin/bash
 
+# Installing nala package manager
+echo "Installing Nala package manager"
+sudo apt-get install nala
+echo
+
+# Fetching mirrors
+echo "Fetching mirrors"
+sudo nala fetch
+echo
+
 # Running initial update and upgrade
 echo "Running initial update and upgrade of package manager"
-sudo apt-get update && sudo apt-get upgrade -y
+sudo nala update
+sudo nala upgrade
 echo
 
 # Installing core essentials
 echo "Installing core essentials"
 echo -e "\txorg\n\ti3\n\tlightdm"
-sudo apt-get install -y xorg i3 lightdm
+sudo nala install xorg i3 lightdm
 echo
 # Installing extra stuff
 echo "Installing extra stuff"
 echo -e "\tcurl\n\tvim\t\t\t\t\t//vim text editor\n\tnetwork-manager\n\tgh\t\t\t\t\t//github\n\tzsh & zsh-syntax-highlighting\t\t//zsh shell and syntax highlighting\n\tpicom\t\t\t\t\t//compositor\n\tstow\t\t\t\t\t//used for setting dotfiles\n\tpulseaudio & pavucontrol\t\t//audio controls\n\tblueman & libspa-0.2-bluetooth\t\t//bluetooth stuff\n\tzip\n\tgpg\n\tufw\t\t\t\t\t//firewall\n\tthunar\t\t\t\t\t//file manager\n\tflameshot\t\t\t\t//screenshot tool\n\tmateria-gtk-theme\t\t\t//system theme\n\tlxappearance\t\t\t\t//setting system theme\n\tfonts-noto-color-emoji\t\t\t//emoji support for applications\n\ttmux\t\t\t\t\t//terminal multiplexer"
-sudo apt-get install -y curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar flameshot materia-gtk-theme lxappearance fonts-noto-color-emoji tmux
+sudo nala install curl vim network-manager gh zsh zsh-syntax-highlighting picom stow pulseaudio pavucontrol blueman libspa-0.2-bluetooth zip gpg ufw thunar flameshot materia-gtk-theme lxappearance fonts-noto-color-emoji tmux
 echo
 # Enabling lightdm on boot
 echo "Enabling lightdm"
@@ -44,7 +55,7 @@ read -r alacritty
 
 if [[ "$alacritty" == "y" || "$alacritty" == "Y" ]]; then
     # Installing dependencies
-    sudo apt install cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    sudo nala install cmake g++ pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
     cd
     # Installing rustup
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -74,6 +85,10 @@ fi
 
 # Removing the desktop-base package to remove the Debian wallpaper on GRUB and background
 echo "Removing desktop-base for the removal of default Debian background in grub and i3"
-sudo apt-get purge desktop-base -y
-sudo apt-get autoremove -y
-sudo apt-get autoclean -y
+sudo nala purge desktop-base
+# Post package manager cleanup
+echo "Post package manager cleanup"
+sudo nala autopurge
+sudo nala autoremove
+sudo nala autoclean
+sudo nala clean
