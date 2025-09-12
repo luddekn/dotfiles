@@ -90,5 +90,4 @@ sudo nala purge desktop-base
 echo "Post package manager cleanup"
 sudo nala autopurge
 sudo nala autoremove
-sudo nala autoclean
 sudo nala clean
