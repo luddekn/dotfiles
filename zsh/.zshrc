@@ -107,3 +107,7 @@ source ~/.zsh_profile
 alias ls="lsd"
 alias ll="lsd -ahl"
 alias cls="clear"
+
+if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
+   startx 
+fi

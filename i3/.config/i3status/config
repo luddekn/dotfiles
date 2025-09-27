@@ -15,6 +15,7 @@ order += "disk /"
 order += "memory"
 order += "cpu_usage"
 order += "load"
+order += "battery 1"
 order += "time"
 
 time {
@@ -35,4 +36,15 @@ cpu_usage {
 
 memory {
 	format = " MEM %percentage_used "
+}
+battery 1 {
+	format = " %status %percentage "
+	format_percentage = "%.f%s"
+	format_down = "BAT"
+	status_chr = "BAT"
+	status_bat = "BAT"
+	status_unk = "BAT"
+	status_full = "BAT"
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 10
 }

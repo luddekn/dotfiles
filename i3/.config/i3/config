@@ -11,14 +11,6 @@
 
 set $mod Mod4
 
-exec --no-startup-id ~/dotfiles/monitor_setup.sh
-exec --no-startup-id xset s off # Disabling screensaver
-exec --no-startup-id xset -dpms #Disabling screensaver
-exec --no-startup-id xset r on
-exec --no-startup-id xset r rate 200 80 
-exec --no-startup-id ~/dotfiles/scripts/liquidctl.sh # Running liquidctl script for setting CPU cooler values
-exec --no-startup-id ~/dotfiles/scripts/gpu_start.sh # Running nvidia script for setting fan speed
-
 # Keybind for flameshot (screenshot tool)
 bindsym Print exec flameshot gui
 
@@ -56,7 +48,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/alacritty/target/release/alacritty 
+bindsym $mod+Return exec alacritty 
 
 # kill focused window
 bindsym $mod+q kill
