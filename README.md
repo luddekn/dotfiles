@@ -1,7 +1,13 @@
-# i3 Configuration
-Go through the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) script manually, or run it. The packages that **need** to be installed are on the top!
+# Distro
+Using Arch Linux, download ISO [here](https://archlinux.org/download/).
+# Install
+Use Chris Titus's Arch install:
+```bash
+curl -fsSL christitus.com/linux | sh
+```
+From this script install Arch Server, and YAY AUR helper.
 
-After installing the needed packages, run the [set_dotfiles.sh](https://github.com/luddekn/dotfiles/blob/main/set_dotfiles.sh) script to link all dotfiles to their intended places using stow.
+After installing clone this repository, run the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) to install packages, then run [set_dotfiles.sh](https://github.com/luddekn/dotfiles/blob/main/set_dotfiles.sh) to link dotfiles using stow.
 # i3 customization
 A great resource for general i3 customization:
 - [i3-customization](https://itsfoss.com/i3-customization/#change-the-color-scheme-in-the-i3-window-manager)

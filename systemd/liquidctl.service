@@ -1,0 +1,13 @@
+[Unit]
+Description=Liquidctl
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/lk/dotfiles/scripts/liquidctl.sh
+RemainAfterExit=true
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

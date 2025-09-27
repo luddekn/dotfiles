@@ -1,5 +1,5 @@
 #!/bin/bash
-exclude_dirs=("xorg" "scripts")
+exclude_dirs=("xorg" "scripts" "systemd")
 
 # For each file in the ~/dotfiles directory, use stow on all sub-directories excluding the directories
 # depending on the user choice on line 7
