@@ -4,9 +4,10 @@
 yay -Syu
 
 # Installing stuff
-sudo pacman -S nvidia-settings xorg i3 liquidctl stow alacritty lsd tmux dmenu flameshot picom pulseaudio pulseaudio-bluetooth pavucontrol zip unzip ufw xorg-xinit ttf-jetbrains-mono-nerd nodejs-lts-jod npm github-cli usbutils bluez-utils timeshift xclip mariadb 
+sudo pacman -S nvidia-settings xorg i3 liquidctl stow alacritty lsd tmux dmenu flameshot picom pavucontrol zip unzip ufw xorg-xinit ttf-jetbrains-mono-nerd nodejs-lts-jod npm github-cli usbutils timeshift xclip mariadb bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber
 
 yay -S rtl8761b-firmware brave-bin
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
 sudo systemctl enable bluetooth.service
 echo btusb | sudo tee /etc/modules-load.d/btusb.conf
 
