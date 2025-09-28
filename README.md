@@ -8,6 +8,8 @@ curl -fsSL christitus.com/linux | sh
 From this script install Arch Server, and YAY AUR helper.
 
 After installing clone this repository, run the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) to install packages, then run [set_dotfiles.sh](https://github.com/luddekn/dotfiles/blob/main/set_dotfiles.sh) to link dotfiles using stow.
+# Arch Maintenance
+For system maintenance go through this list on the [Arch Wiki](https://wiki.archlinux.org/title/System_maintenance).
 # i3 customization
 A great resource for general i3 customization:
 - [i3-customization](https://itsfoss.com/i3-customization/#change-the-color-scheme-in-the-i3-window-manager)
