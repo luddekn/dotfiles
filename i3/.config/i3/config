@@ -11,6 +11,8 @@
 
 set $mod Mod4
 
+exec --no-startup-id ~/dotfiles/scripts/gpu_start.sh
+
 # Keybind for flameshot (screenshot tool)
 bindsym Print exec flameshot gui
 
