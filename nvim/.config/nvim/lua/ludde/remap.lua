@@ -1,14 +1,13 @@
 -- Setting our leader key, being spacebar
 vim.g.mapleader = " "
-
 require("ludde.lazy")
 
 -- Telescope keybinding
 vim.keymap.set("n", "<leader>s", function()
-	require("telescope.builtin").live_grep({
-		prompt_title = "Search Tags",
-		default_text = "@",
-	})
+    require("telescope.builtin").live_grep({
+        prompt_title = "Search Tags",
+        default_text = "@",
+    })
 end, { desc = "Search @tags in notes" })
 --
 -- Escape insert mode by pressing "jj"
@@ -23,8 +22,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Toggle netrw as a side panel
-vim.keymap.set("n", "<leader>j", "<C-w><C-w>")
-vim.keymap.set("n", "<leader><leader>", ":Neotree toggle<CR>")
+vim.keymap.set("n", "<leader><leader>", "<C-w><C-w>")
+-- vim.keymap.set("n", "<leader>j", ":Neotree toggle<CR>")
 
 -- Deleting without copying it
 vim.keymap.set("n", "<leader>d", '"_d')

@@ -1,5 +1,5 @@
 general.import = [
-	"~/.config/alacritty/rosepine.toml"
+	"~/.config/alacritty/gruvbox.toml"
 ]
 [env]
 TERM = "xterm-256color"
