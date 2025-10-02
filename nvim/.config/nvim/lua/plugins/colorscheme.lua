@@ -1,5 +1,5 @@
 function changeColor(color)
-    color = color or "gruvbox"
+    color = color or "rose-pine"
     vim.cmd.colorscheme(color)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -57,7 +57,7 @@ return {
                 invert_signs = false,
                 invert_tabline = false,
                 inverse = true,
-                contrast = "hard",  -- can be "hard", "soft" or empty string
+                contrast = "hard", -- can be "hard", "soft" or empty string
                 palette_overrides = {},
                 overrides = {},
                 dim_inactive = false,
@@ -65,5 +65,5 @@ return {
             })
             changeColor()
         end
-    }
+    },
 }
