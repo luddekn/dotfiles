@@ -19,7 +19,7 @@ After installing clone this repository, run the [new_computer_setup.sh](https://
 # Arch Maintenance
 
 > [!TIP]
-> **NB!** It is recommended to do system maintenance regularly, once a week, saturday. Not recommended to do system maintenance before or in the middle of important work.
+> It is recommended to do system maintenance regularly, once a week, saturday. Not recommended to do system maintenance before or in the middle of important work.
 
 For system maintenance go through this list on the [Arch Wiki](https://wiki.archlinux.org/title/System_maintenance).
 
@@ -94,3 +94,4 @@ sudo mkdir /usr/local/ludde
 cp newnote.sh /usr/local/ludde/newnote
 sudo chmod +x /usr/local/ludde/newnote
 ```
+
