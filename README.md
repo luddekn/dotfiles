@@ -1,3 +1,5 @@
+_This README.md file is mainly used as documentation for myself to remember certain things_
+
 # Distro
 
 Using Arch Linux, download ISO [here](https://archlinux.org/download/).
