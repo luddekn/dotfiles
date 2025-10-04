@@ -35,6 +35,8 @@ Check for old configuration/cached files:
 
 # Security
 
+### Firewall
+
 Installing a firewall is recommended for anyone using Linux, for example, `ufw`. A classic firewall rule is to deny all incoming, and allow all outgoing:
 
 ```bash
@@ -44,6 +46,8 @@ sudo ufw default allow outgoing
 
 sudo systemctl enable ufw.service # Just in case
 ```
+
+### Root user
 
 Another good practice is to [restrict root login](https://wiki.archlinux.org/title/Security#Restricting_root). You should never use the root account as your main user account, or at all ideally. Why? Because you can do some great irreversible damage to your system, and if someone would get access to your system they would have full control. We should rather be disabling root login, but still have the possibility to use the `sudo` command, if the user is a part of the sudo/wheel group. This allows us to get root privileges for a short period of time in order to do operations that require elevated privileges.
 
