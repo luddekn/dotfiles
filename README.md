@@ -18,6 +18,8 @@ After installing clone this repository, run the [new_computer_setup.sh](https://
 
 # Arch Maintenance
 
+> [!info] **NB!** It is recommended to do system maintenance regularly, once a week, saturday. Not recommended to do system maintenance before or in the middle of important work.
+
 For system maintenance go through this list on the [Arch Wiki](https://wiki.archlinux.org/title/System_maintenance).
 
 - Update packages: `yay -Syu`
