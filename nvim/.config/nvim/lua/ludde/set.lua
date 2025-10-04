@@ -44,3 +44,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Open neotree
 vim.cmd([[autocmd VimEnter * Neotree show]])
+
+-- Ejs files should be recognized
+vim.filetype.add({ extension = { ejs = "ejs" } })
