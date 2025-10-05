@@ -2,13 +2,19 @@
 
 dir="$1"
 file="$2"
-newfile="$(pwd)/$dir/$file"
+ext="${file: -3}"
 
 # Check if arguments have been provided
 if [[ -z "$dir" || -z "$file" ]]; then
     printf "One or more arguments missing\n\nCOMMAND USAGE\n\tnewnote DIRECTORY FILENAME\n\n"
     exit 1
 fi
+
+if [[ $ext != ".md"  ]]; then
+    file="$file.md"
+fi
+
+newfile="$(pwd)/$dir/$file"
 
 # Check if the directory already exists
 if [[ -d "$dir" ]]; then
