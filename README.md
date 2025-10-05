@@ -89,10 +89,10 @@ sudo dpkg -i <latest release https://github.com/lsd-rs/lsd/releases>
 
 # newnote Script
 
-Just a simple script to create new notes
+Just a simple script to create new markdown notes
 
 ```bash
-sudo mkdir /usr/local/ludde
+sudo mkdir /usr/local/newnote
 chmod +x newnote
-sudo ln -s ~/dotfiles/newnote /usr/local/ludde/
+sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```

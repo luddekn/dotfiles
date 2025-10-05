@@ -9,8 +9,8 @@ export PATH=$PATH/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
-if [[ -d "/usr/local/ludde" ]]; then
-    export PATH=$PATH:/usr/local/ludde
+if [[ -d "/usr/local/newnote" ]]; then
+    export PATH=$PATH:/usr/local/newnote
 fi
 
 export NVM_DIR="$HOME/.nvm"
