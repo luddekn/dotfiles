@@ -37,7 +37,9 @@ Check for old configuration/cached files:
 - `~/.local/share/` -- Old files may be lying here
 
 # Security
+
 There is an in-depth security guide on the [Arch Wiki](https://wiki.archlinux.org/title/Security).
+
 ### Firewall
 
 Installing a firewall is recommended for anyone using Linux, for example, `ufw`. A classic firewall rule is to deny all incoming, and allow all outgoing:
@@ -85,15 +87,12 @@ Also make sure to install the following plugins:
 sudo dpkg -i <latest release https://github.com/lsd-rs/lsd/releases>
 ```
 
-# newnote.sh Script
+# newnote Script
 
-A copy of the `newnote.sh` script needs to be put in the `/usr/local/ludde` directory:
+Just a simple script to create new notes
 
 ```bash
 sudo mkdir /usr/local/ludde
-cp newnote.sh /usr/local/ludde/newnote
-sudo chmod +x /usr/local/ludde/newnote
+chmod +x newnote
+sudo ln -s ~/dotfiles/newnote /usr/local/ludde/
 ```
-
-
-
