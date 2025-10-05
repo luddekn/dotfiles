@@ -1,8 +1,12 @@
+# Default programs
+export EDITOR="nvim"
+export TERM="st"
+export TERMINAL="st"
+export BROWSER="brave"
+
 # Set directories where commands can be run from without specifying their full paths.
 export PATH=$PATH/bin
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/alacritty/target/release:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
 if [[ -d "/usr/local/ludde" ]]; then
@@ -12,3 +16,20 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Aliases
+alias ls="lsd"
+alias ll="lsd -ahl"
+alias cls="clear"
+
+# Colored man pages
+export GROFF_NO_SGR=0
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+# Colored less
+export LESS="-R --use-color -Dd+r -Du+b"
+
+# Start xorg display manager
+if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
+   startx 
+fi
