@@ -1,5 +1,9 @@
 _This README.md file is mainly used as documentation for myself to remember certain things_
 
+# Linux Help
+
+A great site that explains subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
+
 # Distro
 
 Using Arch Linux, download ISO [here](https://archlinux.org/download/).
