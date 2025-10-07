@@ -1,20 +1,19 @@
 _This README.md file is mainly used as documentation for myself to remember certain things_
 
-# Linux Help
-
-A great site that explains various subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
-
 # Distro
 
 Using Arch Linux, download ISO [here](https://archlinux.org/download/).
 
-# Install
+## Install
 
 Use Chris Titus's Arch install:
 
 ```bash
 curl -fsSL christitus.com/linux | sh
 ```
+## Linux Help
+
+A great site that explains various subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
 
 From this script install Arch Server, and YAY AUR helper.
 
@@ -100,4 +99,5 @@ sudo mkdir /usr/local/newnote
 chmod +x newnote
 sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```
+
 
