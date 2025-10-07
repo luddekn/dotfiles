@@ -11,6 +11,7 @@ Use Chris Titus's Arch install:
 ```bash
 curl -fsSL christitus.com/linux | sh
 ```
+
 From this script install Arch Server, and YAY AUR helper.
 
 After installing clone this repository, run the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) to install packages, then run [set_dotfiles.sh](https://github.com/luddekn/dotfiles/blob/main/set_dotfiles.sh) to link dotfiles using stow.
@@ -67,6 +68,35 @@ sudo passwd --lock root
 
 Xorg is considered by many to be insecure, and while this is true, it's still used by many. I personally would say that **Xorg is only as insecure as the user using it**, since most of the security flaws mainly relate to user behaviour. We should follow basic security principles by not blindly trusting any application/program, by doing so we could end up being victims of data loss, identity theft, etc.
 
+### Securing GRUB Bootloader
+
+Securing the bootloader is often overlooked, but it's a critical part of Linux system security. If someone gains physical access to your machine, they could bypass authentication at the boot level by modifying boot parameters. You can mitigate this risk by setting a GRUB password, which restricts access to boot options and configuration changes.
+
+> [!NOTE]
+> This assumes the user is using GRUB as their bootloader
+
+1. Create a GRUB password:
+
+```bash
+sudo grub-mkpasswd-pbkdf2
+```
+
+2. Copy the generated hash `grub.pbkdf2.sha512.10000....`
+3. Edit the `/etc/grub.d/40_custom` file:
+
+```
+#!/bin/sh
+exec tail -n +3 $0
+set superusers="your_username"
+password_pbkdf2 your_username grub.pbkdf2.sha512.10000....
+```
+
+4. Lastly, update the GRUB bootloader (This is the Arch way):
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
 # i3 customization
 
 A great resource for general i3 customization:
@@ -99,6 +129,3 @@ sudo mkdir /usr/local/newnote
 chmod +x newnote
 sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```
-
-
-
