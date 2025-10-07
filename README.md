@@ -11,13 +11,13 @@ Use Chris Titus's Arch install:
 ```bash
 curl -fsSL christitus.com/linux | sh
 ```
-## Linux Help
-
-A great site that explains various subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
-
 From this script install Arch Server, and YAY AUR helper.
 
 After installing clone this repository, run the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) to install packages, then run [set_dotfiles.sh](https://github.com/luddekn/dotfiles/blob/main/set_dotfiles.sh) to link dotfiles using stow.
+
+## Linux Help
+
+A great site that explains various subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
 
 # Arch Maintenance
 
@@ -99,5 +99,6 @@ sudo mkdir /usr/local/newnote
 chmod +x newnote
 sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```
+
 
 
