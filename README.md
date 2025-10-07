@@ -2,7 +2,7 @@ _This README.md file is mainly used as documentation for myself to remember cert
 
 # Linux Help
 
-A great site that explains subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
+A great site that explains various subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
 
 # Distro
 
@@ -100,3 +100,4 @@ sudo mkdir /usr/local/newnote
 chmod +x newnote
 sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```
+
