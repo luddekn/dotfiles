@@ -108,16 +108,14 @@ A great resource for general i3 customization:
 
 # ZSH Configuration
 
-Install [Oh-My-ZSH](https://ohmyz.sh/#install), remove the autogenreated .zshrc file, go into the dotfiles directory and run the `set_dotfiles` script.
+Install the following plugins for zsh:
 
-Also make sure to install the following plugins:
+- `sudo pacman -S zsh-autosuggestions zsh-syntax-highlighting`
 
-- `git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions`
-- `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting`
+For more colorful ls command, install lsd:
 
 ```bash
-# We install this to get a more colorful "ls" command
-sudo dpkg -i <latest release https://github.com/lsd-rs/lsd/releases>
+sudo pacman -S lsd
 ```
 
 # newnote Script
