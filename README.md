@@ -112,7 +112,7 @@ Install the following plugins for zsh:
 
 - `sudo pacman -S zsh-autosuggestions zsh-syntax-highlighting`
 
-For more colorful ls command, install lsd:
+For a more colorful ls command, install lsd:
 
 ```bash
 sudo pacman -S lsd
@@ -127,3 +127,4 @@ sudo mkdir /usr/local/newnote
 chmod +x newnote
 sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```
+
