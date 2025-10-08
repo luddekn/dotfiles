@@ -5,6 +5,7 @@ import=["~/.config/alacritty/rose-pine.toml"]
 decorations="Full"
 opacity=1.0
 blur=false
+title="Alacritty Terminal"
 [scrolling]
 history=3000
 [cursor]
