@@ -1,6 +1,6 @@
 # Go to https://alacritty.org/config-alacritty.html for config details
 [general]
-import=["~/.config/alacritty/rose-pine.toml"]
+import=["~/.config/alacritty/solarized-osaka.toml"]
 [window]
 decorations="Full"
 opacity=1.0
