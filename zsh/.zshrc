@@ -1,6 +1,6 @@
 zmodload zsh/complist
-autoload -U compinit
-autoload -U colors
+autoload -U compinit && compinit
+autoload -U colors && colors
 autoload -U vcs_info
 
 # Cmp opts
@@ -10,7 +10,7 @@ zstyle ':completion:*' squeeze-slashes false
 
 # VCS opts
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr ' %F{#eb6f92}✗%f'
+zstyle ':vcs_info:*' unstagedstr ' %F{#dc312e}✗%F{#1f1f1f}'
 zstyle ':vcs_info:git:*' formats       '(%b%u)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
@@ -50,9 +50,9 @@ precmd() {
     NEWLINE=$'\n'
     # Prompt is different if we are in a git directory
     if [[ -n $vcs_info_msg_0_ ]]; then
-        PROMPT='${NEWLINE}%B%K{#6e6a86}%F{#e0def4} $(date +%_H:%M) %K{#908caa} %1~ ${vcs_info_msg_0_} %f%k%b  '
+        PROMPT='${NEWLINE}%B%K{#586e74}%F{#ffffff}$(date +%_H:%M) %K{#839495}%F{#1f1f1f} %1~ ${vcs_info_msg_0_} %f%k%b  '
     else
-        PROMPT='${NEWLINE}%B%K{#6e6a86}%F{#e0def4} $(date +%_H:%M) %K{#908caa} %1~ %f%k%b  '
+        PROMPT='${NEWLINE}%B%K{#586e74}%F{#ffffff}$(date +%_H:%M) %K{#839495}%F{#1f1f1f} %1~ %f%k%b  '
     fi    
 }
 
