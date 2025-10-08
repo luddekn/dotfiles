@@ -1,7 +1,7 @@
 # Default programs
 export EDITOR="nvim"
-export TERM="st"
-export TERMINAL="st"
+export TERM="alacritty"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export XDG_CURRENT_DESKTOP="i3"
 
