@@ -12,7 +12,7 @@ zstyle ':completion:*' squeeze-slashes false
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{#dc312e}⏹%F{#ffbf00}'
 zstyle ':vcs_info:*' stagedstr '%F{#859900}⏹%F{#ffbf00}'
-zstyle ':vcs_info:git:*' formats       '%b %u%c '
+zstyle ':vcs_info:git:*' formats       '%b %u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
 # Main opts
