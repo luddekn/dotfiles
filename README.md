@@ -40,6 +40,12 @@ Check for old configuration/cached files:
 - `~/.cache/` -- Cache of some programs grow in size, and cache from removed applications can still be here
 - `~/.local/share/` -- Old files may be lying here
 
+Generating a good mirrorlist using reflector:
+
+```bash
+sudo reflector --country your_country --latest 5 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+```
+
 # Security
 
 There is an in-depth security guide on the [Arch Wiki](https://wiki.archlinux.org/title/Security).
@@ -127,4 +133,3 @@ sudo mkdir /usr/local/newnote
 chmod +x newnote
 sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
 ```
-
