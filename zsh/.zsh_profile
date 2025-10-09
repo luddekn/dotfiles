@@ -1,9 +1,5 @@
-# Default programs
-export EDITOR="nvim"
-export TERM="alacritty"
-export TERMINAL="alacritty"
-export BROWSER="brave"
 export XDG_CURRENT_DESKTOP="i3"
+export TERM="xterm-256color"
 
 # Set directories where commands can be run from without specifying their full paths.
 export PATH=$PATH/bin
@@ -24,7 +20,6 @@ alias ll="lsd -ahl"
 alias cls="clear"
 
 # Colored man pages
-export GROFF_NO_SGR=0
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Colored less

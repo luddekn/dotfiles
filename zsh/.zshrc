@@ -51,9 +51,9 @@ precmd() {
     NEWLINE=$'\n'
     # Prompt is different if we are in a git directory
     if [[ -n $vcs_info_msg_0_ ]]; then
-        PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %K{#005266}%F{#ffbf00} ${vcs_info_msg_0_}%f%k%b  '
+        PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %K{#005266}%F{#ffbf00} ${vcs_info_msg_0_}%f%k%b '
     else
-        PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %f%k%b  '
+        PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %f%k%b '
     fi    
 }
 
