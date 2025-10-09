@@ -10,16 +10,19 @@ return {
     {
         "craftzdog/solarized-osaka.nvim",
         lazy = false,
+        priority = 1000,
         config = function()
             require("solarized-osaka").setup({
-                disable_background = true,
+                transparent = true,
                 styles = {
                     floats = "dark",
-                    sidebar = "dark",
                 },
-                hide_inactive_statusline = true,
-                dim_inactive = true,
-                lualine_bold = true,
+                on_colors = function(colors)
+                    colors.hint = colors.orange
+                    colors.error = colors.red
+                    colors.border = colors.yellow
+                    colors.info = colors.blue
+                end,
             })
             changeColor()
         end,
@@ -30,9 +33,6 @@ return {
         config = function()
             require("rose-pine").setup({
                 disable_background = true,
-                styles = {
-                    italic = false,
-                },
             })
             changeColor()
         end,

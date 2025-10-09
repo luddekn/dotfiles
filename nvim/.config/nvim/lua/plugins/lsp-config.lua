@@ -29,6 +29,12 @@ return {
         local lsp = require("lspconfig")
         require("conform")
         local cmp = require("cmp")
+        require("cmp").setup({
+            window = {
+                completion = require("cmp").config.window.bordered(),
+                documentation = require("cmp").config.window.bordered(),
+            }
+        })
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
             "force",
