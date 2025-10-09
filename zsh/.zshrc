@@ -12,8 +12,8 @@ zstyle ':completion:*' squeeze-slashes false
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{#dc312e}⏹%F{#ffbf00}'
 zstyle ':vcs_info:*' stagedstr '%F{#859900}⏹%F{#ffbf00}'
-zstyle ':vcs_info:git:*' formats       '(%b %u%c)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+zstyle ':vcs_info:git:*' formats       '%b %u%c '
+zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
 # Main opts
 setopt append_history inc_append_history share_history
@@ -51,7 +51,7 @@ precmd() {
     NEWLINE=$'\n'
     # Prompt is different if we are in a git directory
     if [[ -n $vcs_info_msg_0_ ]]; then
-        PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %K{#005266}%F{#ffbf00} ${vcs_info_msg_0_} %f%k%b  '
+        PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %K{#005266}%F{#ffbf00} ${vcs_info_msg_0_}%f%k%b  '
     else
         PROMPT='${NEWLINE}%B%K{#586e74}%F{#cfcfcf} $(date +%_H:%M) %K{#839495}%F{#efefef} %1~ %f%k%b  '
     fi    
