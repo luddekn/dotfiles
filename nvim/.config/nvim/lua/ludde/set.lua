@@ -27,9 +27,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 
---vim.opt.colorcolumn = "80"
---vim.opt.cmdheight = 2
-
 -- Quickly highlights the text you are copying
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
@@ -42,8 +39,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- Open neotree
+-- Open neotree when nvim starts
 vim.cmd([[autocmd VimEnter * Neotree show]])
-
--- Ejs files should be recognized
-vim.filetype.add({ extension = { ejs = "ejs" } })
