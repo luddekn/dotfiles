@@ -18,6 +18,8 @@ export NVM_DIR="$HOME/.nvm"
 alias ls="lsd"
 alias ll="lsd -ahl"
 alias cls="clear"
+alias mysql="mariadb --skip-ssl"
+alias nn="newnote"
 
 # Colored man pages
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
