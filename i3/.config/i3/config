@@ -53,7 +53,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run -nb "#000000" -sb "#ffffff" -sf "#000000" -fn "JetBrains Mono Nerd Font"
+bindsym $mod+space exec --no-startup-id dmenu_run -nb "#000000" -sb "#ffffff" -sf "#000000" -fn "BlexMono Nerd Font"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
