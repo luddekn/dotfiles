@@ -24,6 +24,7 @@ alias mount-media="$HOME/dotfiles/mountmedia.sh"
 alias umount-media="sudo umount /mnt/media"
 
 # Colored man pages
+export GROFF_NO_SGR=0
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Colored less
