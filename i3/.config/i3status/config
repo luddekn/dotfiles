@@ -7,8 +7,8 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+    colors = true
+    interval = 5
 }
 
 #order += "battery 1"
@@ -20,13 +20,13 @@ order += "ethernet enp3s0"
 order += "time"
 
 time {
-        format = "| %H:%M %d/%m/%Y"
+    format = "| %H:%M %d/%m/%Y"
 }
 
 ethernet enp3s0{
     color_good = "#FFFFFF"
-        format_up = "󰤨 "
-        format_down = "󰤯 "
+    format_up = "󰤨 "
+    format_down = "󰤯 "
 }
 
 cpu_usage {
@@ -38,13 +38,14 @@ memory {
 }
 
 disk "/" {
-        format = "  %avail"
+    format = "  %avail"
 }
 
 volume master {
-    format = "  %volume"
-        device = "default"
-        mixer = "Master"
+    format = " %volume"
+    format_muted = ""
+    device = "default"
+    mixer = "Master"
 }
 
 # battery 1 {
