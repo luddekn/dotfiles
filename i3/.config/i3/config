@@ -49,7 +49,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id dmenu_run -nb "#000000" -sb "#ffffff" -sf "#000000" -fn "BlexMono Nerd Font"
+bindsym $mod+space exec --no-startup-id dmenu_run -nb "#000000" -sb "#ffffff" -sf "#000000" -fn "BlexMono Nerd Font-14"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -206,3 +206,6 @@ bindsym Print exec flameshot gui
 # Volume shortcuts
 bindsym $mod+Shift+v exec pactl set-sink-volume bluez_output.C8_7B_23_06_A2_66.1 -5% 
 bindsym $mod+v exec pactl set-sink-volume bluez_output.C8_7B_23_06_A2_66.1 +5% 
+
+# Power menu
+bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/powermenu.sh
