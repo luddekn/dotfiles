@@ -20,7 +20,7 @@ alias ll="lsd -ahl"
 alias cls="clear"
 alias mysql="mariadb --skip-ssl"
 alias nn="newnote"
-alias mount-media="sudo mount -t cifs //192.168.0.141/media /mnt/media -o credentials=/etc/samba/credentials,vers=3.0"
+alias mount-media="$HOME/dotfiles/mountmedia.sh"
 alias umount-media="sudo umount /mnt/media"
 
 # Colored man pages
