@@ -1,5 +1,7 @@
 export XDG_CURRENT_DESKTOP="i3"
 export TERM="xterm-256color"
+# Used for enabling formatting for text, including colors
+export GROFF_NO_SGR=0
 
 # Set directories where commands can be run from without specifying their full paths.
 export PATH=$PATH/bin
@@ -18,13 +20,15 @@ export NVM_DIR="$HOME/.nvm"
 alias ls="lsd"
 alias ll="lsd -ahl"
 alias cls="clear"
+alias grep="grep --color=always"
+alias ip4="ip -c -p -h -br -f inet a"
+alias ip6="ip -c -p -h -br -f inet6 a"
 alias mysql="mariadb --skip-ssl"
 alias nn="newnote"
 alias mount-media="$HOME/dotfiles/mountmedia.sh"
 alias umount-media="sudo umount /mnt/media"
 
 # Colored man pages
-export GROFF_NO_SGR=0
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # Colored less
