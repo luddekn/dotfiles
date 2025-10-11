@@ -88,7 +88,7 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -202,7 +202,7 @@ bar {
         output DP-2
         colors {
                 background #000000
-                separator #ffffff
+                separator #000000
                 #                       border          background      text
                 focused_workspace       $bgcolor        $bgcolor        $text
                 inactive_workspace      $in-bgcolor     $in-bgcolor     $in-text
@@ -218,3 +218,7 @@ bindsym $mod+d exec discord
 bindsym $mod+b exec brave 
 bindsym $mod+p exec postman 
 bindsym Print exec flameshot gui
+
+# Volume shortcuts
+bindsym $mod+Shift+v exec pactl set-sink-volume bluez_output.C8_7B_23_06_A2_66.1 -5% 
+bindsym $mod+v exec pactl set-sink-volume bluez_output.C8_7B_23_06_A2_66.1 +5% 
