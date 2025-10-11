@@ -44,7 +44,7 @@ disk "/" {
 volume master {
     format = " %volume"
     format_muted = ""
-    device = "pulse:bluez_output.C8_7B_23_06_A2_66.1"
+    device = "default"
     mixer = "Master"
 }
 
