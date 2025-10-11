@@ -25,8 +25,8 @@ time {
 
 ethernet enp3s0{
     color_good = "#FFFFFF"
-    format_up = "󰤨 "
-    format_down = "󰤯 "
+    format_up = " "
+    format_down = " "
 }
 
 cpu_usage {
