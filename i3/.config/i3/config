@@ -43,7 +43,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec --no-startup-id alacritty 
 
 # kill focused window
 bindsym $mod+q kill
@@ -198,14 +198,14 @@ bar {
 workspace 6 output HDMI-1
 
 # Program shortcuts
-bindsym $mod+d exec discord 
-bindsym $mod+b exec brave 
-bindsym $mod+p exec postman 
-bindsym Print exec flameshot gui
+bindsym $mod+d exec --no-startup-id discord 
+bindsym $mod+b exec --no-startup-id brave 
+bindsym $mod+p exec --no-startup-id postman 
+bindsym Print exec --no-startup-id flameshot gui
 
 # Volume shortcuts
-bindsym $mod+Shift+v exec pactl set-sink-volume bluez_output.C8_7B_23_06_A2_66.1 -5% 
-bindsym $mod+v exec pactl set-sink-volume bluez_output.C8_7B_23_06_A2_66.1 +5% 
+bindsym $mod+Shift+v exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% 
+bindsym $mod+v exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 
 # Power menu
 bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/powermenu.sh
