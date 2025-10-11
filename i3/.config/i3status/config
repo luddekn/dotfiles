@@ -11,40 +11,50 @@ general {
         interval = 5
 }
 
+#order += "battery 1"
+order += "volume master"
 order += "disk /"
 order += "memory"
 order += "cpu_usage"
-order += "load"
-order += "battery 1"
+order += "ethernet enp3s0"
 order += "time"
 
 time {
-        format = "     %H:%M %d/%m/%Y"
+        format = "| %H:%M %d/%m/%Y"
 }
 
-load {
-        format = " LOAD %1min "
-}
-
-disk "/" {
-        format = " DISK %avail "
+ethernet enp3s0{
+    color_good = "#FFFFFF"
+        format_up = "󰤨 "
+        format_down = "󰤯 "
 }
 
 cpu_usage {
-	format = " CPU %usage "
+    format = "  %usage |"
 }
 
 memory {
-	format = " MEM %percentage_used "
+    format = "  %percentage_used"
 }
-battery 1 {
-	format = " %status %percentage "
-	format_percentage = "%.f%s"
-	format_down = "BAT"
-	status_chr = "BAT"
-	status_bat = "BAT"
-	status_unk = "BAT"
-	status_full = "BAT"
-	path = "/sys/class/power_supply/BAT%d/uevent"
-	low_threshold = 10
+
+disk "/" {
+        format = "  %avail"
 }
+
+volume master {
+    format = "  %volume"
+        device = "default"
+        mixer = "Master"
+}
+
+# battery 1 {
+# 	format = " %status %percentage "
+# 	format_percentage = "%.f%s"
+# 	format_down = "BAT"
+# 	status_chr = "BAT"
+# 	status_bat = "BAT"
+# 	status_unk = "BAT"
+# 	status_full = "BAT"
+# 	path = "/sys/class/power_supply/BAT%d/uevent"
+# 	low_threshold = 10
+# }
