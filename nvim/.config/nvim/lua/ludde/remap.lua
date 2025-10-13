@@ -40,3 +40,15 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Pasting from system clipboard
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
+
+-- Opening markdown links in browser
+vim.keymap.set("n", "<leader>o", function()
+    vim.cmd("normal! yi(")
+    local url = vim.fn.getreg('"')
+
+    if string.match(url, "https") or string.match(url, "http") then
+        print("Opened in browser:", url)
+        return vim.cmd("Open " .. url)
+    end
+    print("The selected text is not a valid URL")
+end)
