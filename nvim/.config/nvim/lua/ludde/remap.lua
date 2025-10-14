@@ -45,10 +45,14 @@ vim.keymap.set("v", "<leader>p", '"+p')
 vim.keymap.set("n", "<leader>o", function()
     vim.cmd("normal! yi(")
     local url = vim.fn.getreg('"')
+    local filename = vim.api.nvim_buf_get_name(0)
 
-    if string.match(url, "https") or string.match(url, "http") then
-        print("Opened in browser:", url)
-        return vim.cmd("Open " .. url)
+    if vim.endswith(filename, ".md") then
+        if string.match(url, "https") or string.match(url, "http") then
+            print("Opened in browser:", url)
+            return vim.cmd("Open " .. url)
+        end
+        print("The selected text is not a valid URL")
     end
-    print("The selected text is not a valid URL")
+    print("Can't open links in non-markdown files")
 end)
