@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>s", function()
         prompt_title = "Search Tags",
         default_text = "@",
     })
-end, { desc = "Search @tags in notes" })
---
+end)
+
 -- Escape insert mode by pressing "jj"
 vim.keymap.set("i", "jj", "<Esc>")
 
@@ -44,7 +44,7 @@ vim.keymap.set("v", "<leader>p", '"+p')
 -- Opening markdown links in browser
 vim.keymap.set("n", "<leader>o", function()
     vim.cmd("normal! yi(")
-    local url = vim.fn.getreg('"')
+    local url = vim.fn.getreg()
     local filename = vim.api.nvim_buf_get_name(0)
 
     if vim.endswith(filename, ".md") then
