@@ -4,6 +4,7 @@ function changeColor(color)
 
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#664d00" })
 end
 
 return {
@@ -20,7 +21,7 @@ return {
                 on_colors = function(colors)
                     colors.hint = colors.orange
                     colors.error = colors.red
-                    colors.border = colors.yellow
+                    colors.border = colors.yellow700
                     colors.info = colors.blue
                 end,
             })
