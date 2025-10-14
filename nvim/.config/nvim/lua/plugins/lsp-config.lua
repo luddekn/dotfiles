@@ -100,16 +100,6 @@ return {
             }),
         })
 
-        vim.diagnostic.config({
-            virtual_text = true,
-            signs = true,
-            underline = false,
-            update_in_insert = true,
-            severity_sort = true,
-            float = false,
-        })
-
-
         cmp.setup.cmdline("/", {
             mapping = cmp.mapping.preset.cmdline(),
             sources = { { name = "buffer" } },
