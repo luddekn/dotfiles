@@ -4,7 +4,7 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
-                c = { "clang-format" },
+                cs = { "csharpier" },
                 lua = { "stylua" },
                 go = { "gofmt" },
                 javascript = { "prettierd", "prettier" },

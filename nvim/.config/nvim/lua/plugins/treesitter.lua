@@ -3,7 +3,7 @@ return {
     run = ":TSUpdate",
     config = function()
         require("nvim-treesitter.configs").setup({
-            ensure_installed = { "go", "lua", "javascript", "html", "css" },
+            ensure_installed = { "go", "lua", "javascript", "html", "css", "c_sharp" },
 
             highlight = {
                 enable = true,

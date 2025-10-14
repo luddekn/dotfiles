@@ -64,6 +64,7 @@ return {
                 "cssls",
                 "html",
                 "bashls",
+                "omnisharp"
             },
             handlers = {
                 function(server_name) -- default handler
