@@ -41,6 +41,10 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
 
+-- Jumping to start and end of the line
+vim.keymap.set("n", "<C-h>", '0')
+vim.keymap.set("n", "<C-l>", '$')
+
 -- Opening markdown links in browser
 vim.keymap.set("n", "<leader>o", function()
     vim.cmd("normal! yi(")
