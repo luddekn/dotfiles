@@ -4,7 +4,12 @@
 yay -Syu
 
 # Installing stuff
-sudo pacman -S nvidia-settings xorg i3 liquidctl stow lsd tmux dmenu flameshot pavucontrol zip unzip ufw xorg-xinit ttf-ibmplex-mono-nerd nodejs-lts-jod npm github-cli usbutils timeshift xclip mariadb bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber
+sudo pacman -S nvidia-settings xorg i3 liquidctl stow lsd tmux dmenu flameshot pavucontrol zip unzip ufw xorg-xinit ttf-ibmplex-mono-nerd usbutils timeshift xclip bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber
+
+# Installing dev stuff
+sudo pacman -S nodejs-lts-jod npm git github-cli mariadb 
+# For dotnet stuff
+sudo pacman -S dotnet-sdk aspnet-runtime-9.0
 
 yay -S rtl8761b-firmware brave-bin
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
@@ -15,6 +20,7 @@ echo "Enabling ufw and setting rules"
 sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+sudo systemctl enable ufw.service # Just in case
 echo
 
 yay -Sc
