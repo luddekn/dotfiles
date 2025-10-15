@@ -46,26 +46,27 @@ declare -A info=(
     ["IPv4 ($networkif)"]="$networkip"
     ["IPv4"]="$networkip"
 )
-
 system=("OS" "Kernel" "Uptime")
-echo -e "\n\033[34m SYSTEM\n──────────────────────────────"
-for key in "${system[@]}"; do
-    printf "\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
-done
-
 hardware=("Architecture" "Motherboard" "Firmware" "CPU" "GPU" "Memory" "Disk (/)")
-echo -e "\n\033[34m HARDWARE\n──────────────────────────────"
-for key in "${hardware[@]}"; do
-    printf "\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
-done
-
 network=("Status")
 if [[ "$networkstat" == "UP" ]]; then
     network+=("IPv4 ($networkif)")
 else
     network+=("IPv4")
 fi
-echo -e "\n\033[34m NETWORK\n──────────────────────────────"
-for key in "${network[@]}"; do
-    printf "\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+
+echo -e "\n\033[34m┐\n├SYSTEM"
+for key in "${system[@]}"; do
+    printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
 done
+
+echo -e "\033[34m│\n├HARDWARE"
+for key in "${hardware[@]}"; do
+    printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+done
+
+echo -e "\033[34m│\n├NETWORK"
+for key in "${network[@]}"; do
+    printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+done
+echo -e "\033[34m┘"
