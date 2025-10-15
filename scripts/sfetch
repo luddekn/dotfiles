@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# Getting sys info
+distro=$(cat /etc/*-release | awk -F= '/PRETTY_NAME/ {print $2}' | tr -d '"')
+kernel=$(uname -s -r)
+uptime=$(uptime -p | cut --delimiter " " -f2-)
+
+# Getting hardware info
+architecture=$(uname -m)
+cpu=$(lscpu | awk -F: '/Model name/ {print $2}' | sed "s/^ *//")
+gpu=$(lspci | awk -F: '/VGA/ {print $3}' | sed "s/^ *//" | sed "s/ ([^)]*)$//")
+memory=$(lsmem | awk -F: '/Total online memory/ {print $2}' | sed "s/^ *//")
+disk=$(df -h / | awk 'NR==2 {print $2 " (used "$5")"}')
+motherboard=$(cat /sys/class/dmi/id/board_name 2>/dev/null)
+motherboard=${motherboard:-Unknown}
+if [ -d /sys/firmware/efi ]; then
+    firmware="UEFI"
+else
+    firmware="BIOS"
+fi
+
+# Getting network info
+networkif=$(ip -o link show | awk -F": " '$2 != "lo" {print $2}')
+networkstat=$(ip link show dev "$networkif" | grep -q "state UP" && echo "UP" || echo "DOWN")
+networkip=$(ip -p -h -br -f inet a show dev "$networkif" 2>/dev/null | awk '{print $3}')
+
+# Output
+declare -A info=(
+    ["OS"]="$distro"
+    ["Kernel"]="$kernel"
+    ["Uptime"]="$uptime"
+    ["Architecture"]="$architecture"
+    ["CPU"]="$cpu"
+    ["GPU"]="$gpu"
+    ["Memory"]="$memory"
+    ["Disk (/)"]="$disk"
+    ["Motherboard"]="$motherboard"
+    ["Firmware"]="$firmware"
+    ["Status"]="$networkstat"
+    ["IPv4 ($networkif)"]="$networkip"
+)
+
+system=("OS" "Kernel" "Uptime")
+echo -e "\n\033[34m SYSTEM\n──────────────────────────────"
+for key in "${system[@]}"; do
+    printf "\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+done
+
+hardware=("Architecture" "Motherboard" "Firmware" "CPU" "GPU" "Memory" "Disk (/)")
+echo -e "\n\033[34m HARDWARE\n──────────────────────────────"
+for key in "${hardware[@]}"; do
+    printf "\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+done
+
+network=("Status")
+if [[ "$networkstat" == "UP" ]]; then
+    network+=("IPv4 ($networkif)")
+fi
+echo -e "\n\033[34m NETWORK\n──────────────────────────────"
+for key in "${network[@]}"; do
+    printf "\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+done
