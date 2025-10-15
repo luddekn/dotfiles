@@ -8,8 +8,8 @@ export PATH=$PATH/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
-if [[ -d "/usr/local/newnote" ]]; then
-    export PATH=$PATH:/usr/local/newnote
+if [[ -d "/usr/local/ludde" ]]; then
+    export PATH=$PATH:/usr/local/ludde
 fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -25,8 +25,7 @@ alias ip4="ip -c -p -h -br -f inet a"
 alias ip6="ip -c -p -h -br -f inet6 a"
 alias mysql="mariadb --skip-ssl"
 alias nn="newnote"
-alias mount-media="$HOME/dotfiles/mountmedia.sh"
-alias umount-media="sudo umount /mnt/media"
+alias umountmedia="sudo umount /mnt/media"
 
 # Colored man pages
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
