@@ -208,4 +208,4 @@ bindsym $mod+Shift+v exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -
 bindsym $mod+v exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
 
 # Power menu
-bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/powermenu.sh
+bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/powermenu.sh
