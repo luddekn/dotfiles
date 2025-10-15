@@ -124,12 +124,24 @@ For a more colorful ls command, install lsd:
 sudo pacman -S lsd
 ```
 
-# newnote Script
+# Scripts
+
+Create the `/usr/local/ludde` directory. This is where these scripts should be stored. In `.zsh_profile` there is also a entry for this directory.
+
+### Newnote
 
 Just a simple script to create new markdown notes
 
 ```bash
-sudo mkdir /usr/local/newnote
 chmod +x newnote
-sudo ln -s ~/dotfiles/newnote /usr/local/newnote/
+sudo ln -s ~/dotfiles/scripts/newnote /usr/local/ludde/
+```
+
+### Sfetch
+
+Just a simple system fetch
+
+```bash
+chmod +x sfetch
+sudo ln -s ~/dotfiles/scripts/sfetch /usr/local/ludde/
 ```
