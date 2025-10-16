@@ -11,6 +11,9 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
 vim.keymap.set("n", "<C-h>", "0")
 vim.keymap.set("n", "<C-l>", "$")
+vim.keymap.set("n", "<leader>j", "<C-w><C-w>")
+vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader>w", ":w<CR>")
 
 -- LSP keybinds
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
