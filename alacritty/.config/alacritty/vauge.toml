@@ -2,7 +2,7 @@
 # Upstream: https://github.com/vague-theme/vague-alacritty/blob/main/vague.toml
 
 [colors.primary]
-background = '#141415'
+background = '#000000'
 foreground = '#cdcdcd'
 
 [colors.normal]
