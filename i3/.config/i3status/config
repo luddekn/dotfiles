@@ -8,7 +8,7 @@
 
 general {
     colors = true
-    interval = 5
+    interval = 10
 }
 
 #order += "battery 1"
@@ -20,17 +20,18 @@ order += "ethernet enp3s0"
 order += "time"
 
 time {
-    format = "| %H:%M %d/%m/%Y"
+    format = "│ %H:%M %d/%m/%Y"
 }
 
 ethernet enp3s0{
     color_good = "#FFFFFF"
-    format_up = " "
-    format_down = " "
+    color_bad = "#d8647e"
+    format_up = " "
+    format_down = " "
 }
 
 cpu_usage {
-    format = "  %usage |"
+    format = "  %usage "
 }
 
 memory {
@@ -38,11 +39,11 @@ memory {
 }
 
 disk "/" {
-    format = "  %percentage_avail"
+    format = "  %percentage_avail"
 }
 
 volume master {
-    format = " %volume"
+    format = " %volume"
     format_muted = ""
     device = "default"
     mixer = "Master"
