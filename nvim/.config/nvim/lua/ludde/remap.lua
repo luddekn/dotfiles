@@ -2,19 +2,14 @@
 vim.g.mapleader = " "
 require("ludde.lazy")
 
--- Telescope keybinding
-vim.keymap.set("n", "<leader>s", function()
-    -- Live grep needs "ripgrep" installed
-    require("telescope.builtin").live_grep({
-        default_text = "@"
-    })
-end)
+-- Source file
+vim.keymap.set("n", "<leader>O", ":source<CR>:so<CR>")
 
 -- Escape insert mode by pressing "jj"
 vim.keymap.set("i", "jj", "<Esc>")
 
 -- Setting keymaps for lsp
-vim.keymap.set("n", "H", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, {})
 
 -- Keymaps for moving whole lines
@@ -42,21 +37,29 @@ vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
 
 -- Jumping to start and end of the line
-vim.keymap.set("n", "<C-h>", '0')
-vim.keymap.set("n", "<C-l>", '$')
+vim.keymap.set("n", "<C-h>", "0")
+vim.keymap.set("n", "<C-l>", "$")
+
+-- Telescope keybinding
+vim.keymap.set("n", "<leader>s", function()
+	-- Live grep needs "ripgrep" installed
+	require("telescope.builtin").live_grep({
+		default_text = "@",
+	})
+end)
 
 -- Opening markdown links in browser
 vim.keymap.set("n", "<leader>o", function()
-    vim.cmd("normal! yi(")
-    local url = vim.fn.getreg()
-    local filename = vim.api.nvim_buf_get_name(0)
+	vim.cmd("normal! yi(")
+	local url = vim.fn.getreg()
+	local filename = vim.api.nvim_buf_get_name(0)
 
-    if vim.endswith(filename, ".md") then
-        if string.match(url, "https") or string.match(url, "http") then
-            print("Opened in browser:", url)
-            return vim.cmd("Open " .. url)
-        end
-        print("The selected text is not a valid URL")
-    end
-    print("Can't open links in non-markdown files")
+	if vim.endswith(filename, ".md") then
+		if string.match(url, "https") or string.match(url, "http") then
+			print("Opened in browser:", url)
+			return vim.cmd("Open " .. url)
+		end
+		print("The selected text is not a valid URL")
+	end
+	print("Can't open links in non-markdown files")
 end)
