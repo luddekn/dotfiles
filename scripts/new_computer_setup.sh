@@ -4,10 +4,10 @@
 yay -Syu
 
 # Installing stuff
-sudo pacman -S nvidia-settings xorg i3 liquidctl stow lsd tmux dmenu flameshot pavucontrol zip unzip ufw xorg-xinit ttf-ibmplex-mono-nerd usbutils timeshift xclip bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber ripgrep tldr
+sudo pacman -S nvidia-settings xorg i3 liquidctl stow lsd tmux dmenu flameshot pavucontrol zip unzip ufw xorg-xinit ttf-jetbrains-mono-nerd usbutils timeshift xclip bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber ripgrep tldr
 
 # Installing dev stuff
-sudo pacman -S nodejs-lts-jod npm git github-cli mariadb 
+sudo pacman -S nodejs-lts-jod npm git github-cli mariadb
 # For dotnet stuff
 sudo pacman -S dotnet-sdk aspnet-runtime-9.0
 
