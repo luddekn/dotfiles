@@ -10,8 +10,8 @@ zstyle ':completion:*' squeeze-slashes false
 
 # VCS opts
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '%F{#dc312e}⏹ '
-zstyle ':vcs_info:*' stagedstr '%F{#859900}⏹ '
+zstyle ':vcs_info:*' unstagedstr '%F{#d8647e}⏹ '
+zstyle ':vcs_info:*' stagedstr '%F{#7fa563}⏹ '
 zstyle ':vcs_info:git:*' formats       '%b %u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
@@ -51,9 +51,9 @@ precmd() {
     NEWLINE=$'\n'
     # Prompt is different if we are in a git directory
     if [[ -n $vcs_info_msg_0_ ]]; then
-        PROMPT='${NEWLINE}%B%K{#586e74}%F{#002c38} $(date +%_H:%M) %K{#839495}%F{#002c38} %1~ %K{#063540}%F{#b28500} ${vcs_info_msg_0_}%f%k%b '
+        PROMPT='${NEWLINE}%B%K{#cdcdcd}%F{#141415} $(date +%_H:%M) %K{#cdcdcd}%F{#141415}%1~ %K{#252530}%F{#f3be7c} ${vcs_info_msg_0_}%f%k%b '
     else
-        PROMPT='${NEWLINE}%B%K{#586e74}%F{#002c38} $(date +%_H:%M) %K{#839495}%F{#002c38} %1~ %f%k%b '
+        PROMPT='${NEWLINE}%B%K{#cdcdcd}%F{#141415} $(date +%_H:%M) %K{#cdcdcd}%F{#141415}%1~ %f%k%b '
     fi    
 }
 
