@@ -1,6 +1,6 @@
 # Go to https://alacritty.org/config-alacritty.html for config details
 [general]
-import=["~/.config/alacritty/solarized-osaka-dark.toml"]
+import=["~/.config/alacritty/vauge.toml"]
 [window]
 decorations="Full"
 opacity=1.0
