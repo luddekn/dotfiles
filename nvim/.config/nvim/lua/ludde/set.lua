@@ -1,6 +1,5 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 vim.o.nu = true
+vim.o.cursorline = true
 vim.o.relativenumber = true
 vim.o.tabstop = 4
 vim.o.signcolumn = "yes"
@@ -17,12 +16,7 @@ vim.o.breakindent = true
 
 -- Quickly highlights the text you are copying
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.on_yank()
 	end,
 })
-
--- Open neotree when nvim starts
-vim.cmd([[autocmd VimEnter * Neotree show]])

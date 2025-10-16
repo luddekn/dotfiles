@@ -69,7 +69,8 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<TAB>"] = cmp.mapping.confirm({ select = true }),
+				["<TAB>"] = cmp.mapping.select_next_item(cmp_select),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
@@ -80,19 +81,11 @@ return {
 		})
 
 		cmp.setup.cmdline("/", {
-			mapping = vim.tbl_extend("force", cmp.mapping.preset.cmdline(), {
-				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<TAB>"] = cmp.mapping.confirm({ select = true }),
-			}),
+			mapping = cmp.mapping.preset.cmdline(),
 			sources = { { name = "buffer" } },
 		})
 		cmp.setup.cmdline(":", {
-			mapping = vim.tbl_extend("force", cmp.mapping.preset.cmdline(), {
-				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<TAB>"] = cmp.mapping.confirm({ select = true }),
-			}),
+			mapping = cmp.mapping.preset.cmdline(),
 			sources = { { name = "buffer" }, { name = "cmdline" } },
 		})
 	end,
