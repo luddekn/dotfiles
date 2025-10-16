@@ -25,6 +25,7 @@ vim.keymap.set("n", "<leader>s", function()
 	-- Live grep needs "ripgrep" installed
 	require("telescope.builtin").live_grep({
 		default_text = "@",
+		layout_strategy = "vertical",
 	})
 end)
 

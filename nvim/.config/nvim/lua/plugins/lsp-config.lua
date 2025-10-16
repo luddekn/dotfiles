@@ -11,15 +11,6 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = {
-				library = {
-					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				},
-			},
-		},
 	},
 
 	config = function()
@@ -49,6 +40,15 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+			},
+		})
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					workspace = {
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+				},
 			},
 		})
 
