@@ -12,7 +12,7 @@ history=3000
 vi_mode_style={shape="Block", blinking="Off"}
 [font]
 size=15
-normal={family="BlexMono Nerd Font", style="Regular"}
-bold={family="BlexMono Nerd Font", style="Bold"}
-italic={family="BlexMono Nerd Font", style="Regular"}
-bold_italic={family="BlexMono Nerd Font", style="Bold"}
+normal={family="JetBrainsMono Nerd Font", style="Regular"}
+bold={family="JetBrainsMono Nerd Font", style="Bold"}
+italic={family="JetBrainsMono Nerd Font", style="Regular"}
+bold_italic={family="JetBrainsMono Nerd Font", style="Bold"}
