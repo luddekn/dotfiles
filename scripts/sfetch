@@ -3,6 +3,7 @@
 distro=$(cat /etc/*-release | awk -F= '/PRETTY_NAME/ {print $2}' | tr -d '"')
 kernel=$(uname -s -r)
 uptime=$(uptime -p | sed "s/^up //")
+sysupdate=$((($(date -d now +%s) - $(date -d "$(journalctl -o short-iso _COMM=sudo | grep "pacman -Syu" | tail -n 1 | awk '{print $1}')" +%s)) / 86400))
 
 # Getting hardware info
 architecture=$(uname -m)
@@ -15,58 +16,59 @@ disk=$(df -h / | awk 'NR==2 {print $2 " (used "$5")"}')
 motherboard=$(cat /sys/class/dmi/id/board_name 2>/dev/null)
 motherboard=${motherboard:-Unknown}
 if [ -d /sys/firmware/efi ]; then
-    firmware="UEFI"
+	firmware="UEFI"
 else
-    firmware="BIOS"
+	firmware="BIOS"
 fi
 
 # Getting network info
 networkif=$(ip -o link show | awk -F': ' '$2 != "lo" && $0 ~ /state UP/ {print $2; exit}')
 if [ -n "$networkif" ]; then
-    networkstat=$(ip link show dev "$networkif" | grep -q "state UP" && echo "UP" || echo "DOWN")
-    networkip=$(ip -p -h -br -f inet a show dev "$networkif" 2>/dev/null | awk '{print $3}')
+	networkstat=$(ip link show dev "$networkif" | grep -q "state UP" && echo "UP" || echo "DOWN")
+	networkip=$(ip -p -h -br -f inet a show dev "$networkif" 2>/dev/null | awk '{print $3}')
 else
-    networkstat="DOWN"
-    networkip="N/A"
+	networkstat="DOWN"
+	networkip="N/A"
 fi
 
 # Output
 declare -A info=(
-    ["OS"]="$distro"
-    ["Kernel"]="$kernel"
-    ["Uptime"]="$uptime"
-    ["Architecture"]="$architecture"
-    ["CPU"]="$cpu"
-    ["GPU"]="$gpu"
-    ["Memory"]="$memory"
-    ["Disk (/)"]="$disk"
-    ["Motherboard"]="$motherboard"
-    ["Firmware"]="$firmware"
-    ["Status"]="$networkstat"
-    ["IPv4 ($networkif)"]="$networkip"
-    ["IPv4"]="$networkip"
+	["OS"]="$distro"
+	["Kernel"]="$kernel"
+	["Uptime"]="$uptime"
+	["Architecture"]="$architecture"
+	["CPU"]="$cpu"
+	["GPU"]="$gpu"
+	["Memory"]="$memory"
+	["Disk (/)"]="$disk"
+	["Motherboard"]="$motherboard"
+	["Firmware"]="$firmware"
+	["Status"]="$networkstat"
+	["IPv4 ($networkif)"]="$networkip"
+	["IPv4"]="$networkip"
+	["Sys update"]="$sysupdate days ago"
 )
-system=("OS" "Kernel" "Uptime")
+system=("OS" "Kernel" "Uptime" "Sys update")
 hardware=("Architecture" "Motherboard" "Firmware" "CPU" "GPU" "Memory" "Disk (/)")
 network=("Status")
 if [[ "$networkstat" == "UP" ]]; then
-    network+=("IPv4 ($networkif)")
+	network+=("IPv4 ($networkif)")
 else
-    network+=("IPv4")
+	network+=("IPv4")
 fi
 
 echo -e "\n\033[34m┐\n├SYSTEM"
 for key in "${system[@]}"; do
-    printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+	printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
 done
 
 echo -e "\033[34m│\n├HARDWARE"
 for key in "${hardware[@]}"; do
-    printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+	printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
 done
 
 echo -e "\033[34m│\n├NETWORK"
 for key in "${network[@]}"; do
-    printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
+	printf "\033[34m│\033[33m %-15s\033[0m %s\n" "$key" "${info[$key]}"
 done
 echo -e "\033[34m┘"
