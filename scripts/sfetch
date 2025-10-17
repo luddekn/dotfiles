@@ -46,9 +46,9 @@ declare -A info=(
 	["Status"]="$networkstat"
 	["IPv4 ($networkif)"]="$networkip"
 	["IPv4"]="$networkip"
-	["Sys update"]="$sysupdate days ago"
+	["Update"]="$sysupdate days ago"
 )
-system=("OS" "Kernel" "Uptime" "Sys update")
+system=("OS" "Kernel" "Uptime" "Update")
 hardware=("Architecture" "Motherboard" "Firmware" "CPU" "GPU" "Memory" "Disk (/)")
 network=("Status")
 if [[ "$networkstat" == "UP" ]]; then
