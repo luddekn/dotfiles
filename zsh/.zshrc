@@ -16,7 +16,7 @@ zstyle ':vcs_info:git:*' formats       '%b %u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
 # Main opts
-setopt append_history inc_append_history share_history
+setopt append_history inc_append_history share_history extended_history
 setopt auto_menu menu_complete
 setopt autocd
 setopt auto_param_slash
@@ -25,13 +25,12 @@ setopt globdots
 setopt extended_glob
 setopt interactive_comments
 setopt prompt_subst
-unsetopt prompt_sp
 
 # History opts
 HISTSIZE=1000000
 SAVEHIST=1000000
 HISTFILE="$HOME/.zsh_history"
-HISTCONTROL=ignoreboth
+HISTTIMEFORMAT="%s"
 
 # Binds
 bindkey "^h" beginning-of-line
