@@ -3,7 +3,7 @@
 distro=$(cat /etc/*-release | awk -F= '/PRETTY_NAME/ {print $2}' | tr -d '"')
 kernel=$(uname -s -r)
 uptime=$(uptime -p | sed "s/^up //")
-sysupdate=$((($(date -d now +%s) - $(date -d "$(journalctl -o short-iso _COMM=sudo | grep "pacman -Syu" | tail -n 1 | awk '{print $1}')" +%s)) / 86400))
+sysupdate=$((($(date -d now +%s) - $(cat ~/.zsh_history | grep '^: [0-9]*:0;yay -Syu$' | tail -n 1 | awk -F: '{print $2}' | sed 's/^ *//')) / 86400))
 
 # Getting hardware info
 architecture=$(uname -m)
