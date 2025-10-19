@@ -3,11 +3,17 @@
 distro=$(cat /etc/*-release | awk -F= '/PRETTY_NAME/ {print $2}' | tr -d '"')
 kernel=$(uname -s -r)
 uptime=$(uptime -p | sed "s/^up //")
-sysupdate=$((($(date -d now +%s) - $(cat $HOME/.zsh_history | grep '^: [0-9]*:0;yay -Syu$' | tail -n 1 | awk -F: '{print $2}' | sed 's/^ *//')) / 86400))
-if [ "$sysupdate" == 1 ]; then
-	updateinfo="$sysupdate day ago"
-else
-	updateinfo="$sysupdate days ago"
+
+if [ -n "$SHELL" ]; then
+	shell=$(echo $SHELL | awk -F/ '{print $4}')
+	sysupdate=$((($(date -d now +%s) - $(cat $HOME/."$shell"_history | grep '^: [0-9]*:0;yay -Syu$' | tail -n 1 | awk -F: '{print $2}' | sed 's/^ *//')) / 86400))
+	if [ -n "$sysupdate" ]; then
+		if [ "$sysupdate" == 1 ]; then
+			updateinfo="$sysupdate day ago"
+		else
+			updateinfo="$sysupdate days ago"
+		fi
+	fi
 fi
 
 # Getting hardware info
@@ -51,12 +57,16 @@ declare -A info=(
 	["Status"]="$networkstat"
 	["IPv4 ($networkif)"]="$networkip"
 	["IPv4"]="$networkip"
-	["Update"]="$updateinfo"
+	["Last update"]="$updateinfo"
 )
-system=("OS" "Kernel" "Uptime" "Update")
+if [ "$updateinfo" ]; then
+	system=("OS" "Kernel" "Uptime" "Last update")
+else
+	system=("OS" "Kernel" "Uptime")
+fi
 hardware=("Architecture" "Motherboard" "Firmware" "CPU" "GPU" "Memory" "Disk (/)")
 network=("Status")
-if [[ "$networkstat" == "UP" ]]; then
+if [ "$networkstat" == "UP" ]; then
 	network+=("IPv4 ($networkif)")
 else
 	network+=("IPv4")
