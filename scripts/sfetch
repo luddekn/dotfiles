@@ -3,7 +3,12 @@
 distro=$(cat /etc/*-release | awk -F= '/PRETTY_NAME/ {print $2}' | tr -d '"')
 kernel=$(uname -s -r)
 uptime=$(uptime -p | sed "s/^up //")
-sysupdate=$((($(date -d now +%s) - $(cat ~/.zsh_history | grep '^: [0-9]*:0;yay -Syu$' | tail -n 1 | awk -F: '{print $2}' | sed 's/^ *//')) / 86400))
+sysupdate=$((($(date -d now +%s) - $(cat $HOME/.zsh_history | grep '^: [0-9]*:0;yay -Syu$' | tail -n 1 | awk -F: '{print $2}' | sed 's/^ *//')) / 86400))
+if [ "$sysupdate" == 1 ]; then
+	updateinfo="$sysupdate day ago"
+else
+	updateinfo="$sysupdate days ago"
+fi
 
 # Getting hardware info
 architecture=$(uname -m)
@@ -46,7 +51,7 @@ declare -A info=(
 	["Status"]="$networkstat"
 	["IPv4 ($networkif)"]="$networkip"
 	["IPv4"]="$networkip"
-	["Update"]="$sysupdate days ago"
+	["Update"]="$updateinfo"
 )
 system=("OS" "Kernel" "Uptime" "Update")
 hardware=("Architecture" "Motherboard" "Firmware" "CPU" "GPU" "Memory" "Disk (/)")
