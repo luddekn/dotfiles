@@ -6,43 +6,45 @@ ext="${file: -3}"
 
 # Check if arguments have been provided
 if [[ -z "$dir" || -z "$file" ]]; then
-    printf "\nOne or more arguments missing\n\nCOMMAND USAGE\n\tnewnote DIRECTORY FILENAME\n"
-    exit 1
+	printf "\nOne or more arguments missing\n\nCOMMAND USAGE\n\tnewnote DIRECTORY FILENAME\n"
+	exit 1
 fi
 
 if [[ $ext != ".md" ]]; then
-    file="$file.md"
+	file="$file.md"
 fi
 
 newfile="$(pwd)/$dir/$file"
 
 # Check if the directory already exists
 if [[ -d "$dir" ]]; then
-    # Check if a file with that name already exists
-    if [[ -f "$newfile" ]]; then
-        echo "File already exists in '$dir', exiting..."
-        exit 0
-    else
-        touch "$newfile"
-        echo "'$file' created in '$dir'"
-        echo "# ${file%.*}" >"$newfile"
-        echo "Date: $(date -I)" >>"$newfile"
-        echo "Tags: " >>"$newfile"
-        echo "" >>"$newfile"
-        echo "---" >>"$newfile"
-        nvim "$newfile"
-        exit 0
-    fi
+	# Check if a file with that name already exists
+	if [[ -f "$newfile" ]]; then
+		echo "File already exists in '$dir', exiting..."
+		exit 0
+	else
+		touch "$newfile"
+		echo "'$file' created in '$dir'"
+		echo "# ${file%.*}" >"$newfile"
+		echo "Date: $(date -I)" >>"$newfile"
+		echo " " >>"$newfile"
+		echo "Tags: " >>"$newfile"
+		echo "" >>"$newfile"
+		echo "---" >>"$newfile"
+		nvim "$newfile"
+		exit 0
+	fi
 else
-    # Creates new directory and adds the file in that directory
-    mkdir "$dir"
-    touch "$newfile"
-    echo "'$file' created in '$dir'"
-    echo "# ${file%.*}" >"$newfile"
-    echo "Date: $(date -I)" >>"$newfile"
-    echo "Tags: " >>"$newfile"
-    echo "" >>"$newfile"
-    echo "---" >>"$newfile"
-    nvim "$newfile"
-    exit 0
+	# Creates new directory and adds the file in that directory
+	mkdir "$dir"
+	touch "$newfile"
+	echo "'$file' created in '$dir'"
+	echo "# ${file%.*}" >"$newfile"
+	echo "Date: $(date -I)" >>"$newfile"
+	echo " " >>"$newfile"
+	echo "Tags: " >>"$newfile"
+	echo "" >>"$newfile"
+	echo "---" >>"$newfile"
+	nvim "$newfile"
+	exit 0
 fi
