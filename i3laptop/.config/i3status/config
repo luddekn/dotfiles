@@ -1,0 +1,62 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+    colors = true
+    interval = 10
+}
+
+order += "volume master"
+order += "disk /"
+order += "memory"
+order += "cpu_usage"
+order += "ethernet wlan0"
+order += "battery 1"
+order += "time"
+
+time {
+    format = "│ %H:%M %d/%m/%Y"
+}
+
+ethernet wlan0{
+    color_good = "#FFFFFF"
+    color_bad = "#d8647e"
+    format_up = "  "
+    format_down = "  "
+}
+
+cpu_usage {
+    format = "  %usage "
+}
+
+memory {
+    format = "  %percentage_used"
+}
+
+disk "/" {
+    format = "  %percentage_avail"
+}
+
+volume master {
+    format = " %volume"
+    format_muted = ""
+    device = "default"
+    mixer = "Master"
+}
+
+battery 1 {
+    color_bad = "#d8647e"
+	format = " %status-%percentage"
+	format_percentage = "%.f%s"
+	format_down = "D"
+	status_chr = "C" 
+	status_bat = "B"
+	status_full = "F"
+	path = "/sys/class/power_supply/BAT1/uevent"
+	low_threshold = 30 
+}
