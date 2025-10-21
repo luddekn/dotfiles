@@ -21,8 +21,6 @@ And don't forget to enable the `ufw` firewall, steps in [README.md](https://gith
 
 # Installing development stuff
 
-Install these packages using `pacman`
-
 ```bash
 # Essentials
 sudo pacman -S git github-cli mariadb
