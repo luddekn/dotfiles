@@ -1,22 +1,6 @@
-_This README.md file is mainly used as documentation for myself to remember certain things_
+Using Arch Linux btw
 
-# Distro
-
-Using Arch Linux, download ISO [here](https://archlinux.org/download/).
-
-## Install
-
-Use Chris Titus's Arch install:
-
-```bash
-curl -fsSL christitus.com/linux | sh
-```
-
-From this script install Arch Server, and YAY AUR helper.
-
-After installing clone this repository, run the [new_computer_setup.sh](https://github.com/luddekn/dotfiles/blob/main/new_computer_setup.sh) to install packages, then run [set_dotfiles.sh](https://github.com/luddekn/dotfiles/blob/main/set_dotfiles.sh) to link dotfiles using stow.
-
-## Linux Help
+# Linux Help
 
 A great site that explains various subjects in Linux: [TheLinuxBook](https://thelinuxbook.com/)
 
