@@ -24,3 +24,13 @@ sudo systemctl enable ufw.service # Just in case
 echo
 
 yay -Sc
+
+# Thinkpad laptop packages
+sudo pacman -S intel-ucode mesa libva-intel-driver vulkan-intel xf86-input-libinput acpi acpid
+yay -S auto-cpufreq
+
+# Disable bluetooth for saving power
+sudo systemctl disable --now bluetooth.service
+sudo auto-cpufreq --bluetooth_boot_off
+# Disable cpu turbo mode
+echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
