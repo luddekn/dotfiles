@@ -1,7 +1,7 @@
 # Packages to install
 
 ```bash
-sudo pacman -S nvidia-settings xorg i3 liquidctl stow lsd tmux dmenu flameshot pavucontrol zip unzip ufw xorg-xinit ttf-jetbrains-mono-nerd usbutils timeshift xclip bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber ripgrep tldr
+sudo pacman -S nvidia-settings xorg i3 liquidctl stow lsd tmux dmenu flameshot pavucontrol zip unzip ufw xorg-xinit ttf-jetbrains-mono-nerd usbutils timeshift xclip bluez bluez-utils pipewire pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack wireplumber ripgrep zsh-syntax-highlighting
 ```
 
 Installing bluetooth driver and Brave browser
@@ -33,5 +33,3 @@ sudo pacman -S nodejs-lts-jod npm
 # Dotnet
 sudo pacman -S dotnet-sdk aspnet-runtime-9.0
 ```
-
-#
