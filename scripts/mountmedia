@@ -1,7 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-read -p "Username: " username
-read -sp "Password: " password
-echo
+arg="$1"
 
-sudo mount -t cifs //192.168.0.141/media /mnt/media -o "username=$username,password=$password,vers=3.0"
+if [ -d "/mnt/media/music" ]; then
+	if [ "$arg" == "-u" ]; then
+		umount=$(sudo umount /mnt/media 2>/dev/null)
+		res=$?
+		if [ $res == 0 ]; then
+			echo "Unmounted /mnt/media"
+			exit 0
+		else
+			echo "Failed to unmount /mnt/media"
+			exit 1
+		fi
+	fi
+	echo "Media is already mounted"
+	exit 0
+else
+	if [ "$arg" == "-u" ]; then
+		echo "Media not mounted to /mnt/media"
+		exit 1
+	fi
+
+	if [ -f "$HOME/nascred.txt" ]; then
+		mount=$(sudo mount -t cifs //192.168.0.141/media /mnt/media -o credentials=$HOME/nascred.txt,vers=3.0 2>/dev/null)
+		res=$?
+		if [ $res == 0 ]; then
+			echo "Mounted media to /mnt/media"
+			exit 0
+		else
+			echo "Mounting media to /mnt/media failed"
+			exit 1
+		fi
+	else
+		echo "Missing credentials file (nascred.txt) in $HOME"
+		exit 1
+	fi
+fi
