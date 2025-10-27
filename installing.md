@@ -19,6 +19,14 @@ sudo systemctl enable bluetooth.service
 
 And don't forget to enable the `ufw` firewall, steps in [README.md](https://github.com/luddekn/dotfiles/blob/main/README.md#firewall)
 
+## Remote Desktop
+
+For remote desktop, install the following packages:
+
+```bash
+sudo pacman -S remmina freerdp
+```
+
 # Installing development stuff
 
 ```bash
