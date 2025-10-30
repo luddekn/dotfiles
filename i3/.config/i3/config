@@ -206,6 +206,7 @@ bindsym Print exec --no-startup-id flameshot gui
 # Volume shortcuts
 bindsym $mod+Shift+v exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% 
 bindsym $mod+v exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% 
+bindsym $mod+m exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100% 
 
 # Power menu
 bindsym $mod+Shift+p exec --no-startup-id ~/dotfiles/scripts/powermenu.sh
