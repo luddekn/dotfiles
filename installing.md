@@ -39,3 +39,11 @@ sudo pacman -S nodejs-lts-jod npm
 # Dotnet
 sudo pacman -S dotnet-sdk aspnet-runtime-9.0
 ```
+
+# Media
+
+For editing mp3 tags install mp3tag:
+
+```bash
+yay -S mp3tag
+```
