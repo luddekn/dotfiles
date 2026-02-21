@@ -195,8 +195,6 @@ bar {
         }
 }
 
-workspace 6 output HDMI-1
-
 # Program shortcuts
 bindsym $mod+d exec --no-startup-id discord 
 bindsym $mod+b exec --no-startup-id brave 
