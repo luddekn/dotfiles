@@ -22,15 +22,14 @@ vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, {})
 -- Oil filemanager
 vim.keymap.set("n", "<leader><leader>", ":Oil<CR>")
 
-require("ludde.lazy")
 -- Telescope keybinding
-vim.keymap.set("n", "<leader>s", function()
-	-- Live grep needs "ripgrep" installed
-	require("telescope.builtin").live_grep({
-		default_text = "@",
-		layout_strategy = "vertical",
-	})
-end)
+-- vim.keymap.set("n", "<leader>s", function()
+-- 	-- Live grep needs "ripgrep" installed
+-- 	require("telescope.builtin").live_grep({
+-- 		default_text = "@",
+-- 		layout_strategy = "vertical",
+-- 	})
+-- end)
 
 -- Opening markdown links in browser
 vim.keymap.set("n", "<leader>o", function()
