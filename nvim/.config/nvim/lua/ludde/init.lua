@@ -21,7 +21,6 @@ vim.pack.add({
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = "1.*",
 	},
 	"https://github.com/L3MON4D3/LuaSnip",
 })
