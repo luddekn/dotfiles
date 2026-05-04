@@ -61,14 +61,12 @@ require("mason-tool-installer").setup({
 		"html",
 		"prettier",
 		"shfmt",
-		"csharpier",
 	},
 })
 
 -- Conform setup
 require("conform").setup({
 	formatters_by_ft = {
-		cs = { "csharpier" },
 		lua = { "stylua" },
 		go = { "gofmt" },
 		javascript = { "prettier" },
@@ -103,7 +101,7 @@ require("render-markdown").setup({})
 
 -- Treesitter setup
 require("nvim-treesitter").setup({
-	ensure_installed = { "lua", "javascript", "html", "css", "c_sharp" },
+	ensure_installed = { "lua", "javascript", "html", "css" },
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
