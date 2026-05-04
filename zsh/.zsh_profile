@@ -1,20 +1,22 @@
+# Used for enabling formatting for text, including colors
 export XDG_CURRENT_DESKTOP="i3"
 export TERM="xterm-256color"
-# Used for enabling formatting for text, including colors
 export GROFF_NO_SGR=0
 
 # Set directories where commands can be run from without specifying their full paths.
-export PATH=$PATH/bin
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$PATH:/usr/local/go/bin
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:/usr/local/go/bin"
+
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [[ -d "/usr/local/ludde" ]]; then
     export PATH=$PATH:/usr/local/ludde
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Aliases
 alias ls="lsd"
