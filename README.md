@@ -129,3 +129,66 @@ Just a simple system fetch
 chmod +x sfetch
 sudo ln -s ~/dotfiles/scripts/sfetch /usr/local/ludde/
 ```
+
+# VSCode Settings
+
+```json
+{
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+  "editor.fontSize": 16,
+
+  "editor.formatOnSave": true,
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    { "before": ["<leader>", "d"], "after": ["\"", "_", "d"] },
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
+    { "before": ["<leader>", "p"], "after": ["\"", "+", "p"] },
+    { "before": ["<C-h>"], "after": ["0"] },
+    { "before": ["<C-l>"], "after": ["$"] },
+
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["workbench.view.explorer"]
+    },
+
+    { "before": ["K"], "commands": ["editor.action.showHover"] },
+    { "before": ["<leader>", "a"], "commands": ["editor.action.quickFix"] }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] }
+  ],
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<ESC>"]
+    }
+  ],
+  "explorer.confirmDelete": false
+}
+```
